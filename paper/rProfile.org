@@ -7,7 +7,7 @@
 #+STARTUP: fold
 #+CREATED:  [2014-05-01 Thu 22:15]
 #+TODO:    TODO(t) FIXIT(f) DOING(d) | DONE(o)
-#+PROPERTY:   header-args  session *R*
+#+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
 #+PROPERTY:   tangle yes
 #+DEPENDENCY: run C-c C-v t
@@ -33,6 +33,8 @@ node [shape = note]
 
 #+RESULTS[09d512c39eb4d3c141a2029b390164adf2c89e0f]:
 [[file:~/Dropbox/3figs/png/rProfileOrg.png]]
+
+
 
 * TODO R profiles automatically create here
 ** Set Library for Share on Dropbox
