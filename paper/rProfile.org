@@ -20,10 +20,13 @@ Tips:
 + Only edit this file rProfile.org for all R*thing
 + All setup files are tangled from this file 
 + Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
-+ Reuse the code by file cross reference "<<codeName>>" with header noweb:yes
-+ Export to html and view C-c C-e h o
++ Reuse the code by file cross reference ~<<codeName>>~ with header noweb:yes
++ Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
 
 #+BEGIN_SRC dot :file ./Figures/rProfile.png
+
+
+
 
   digraph {
   //graph [rankdir =LR ]
