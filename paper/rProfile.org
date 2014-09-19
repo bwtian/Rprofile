@@ -151,56 +151,7 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 ** Remove R from Linux
 
 * R profiles settingsautomatically create here
-** Choose nearest CRAN mirror
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/CRANmirror.R
-  ## Don't ask me for my CRAN mirror every time
-addRepo ()
-  local({r <- getOption("repos")
-         r["CRAN"] <- "http://cran.md.tsukuba.ac.jp"
-         options(repos=r)})
-#+END_SRC
-** First Function
-.First() run at the start of every R session. 
-   - Use to load commonly used packages 
-   - set default workspace
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/First.R
-    ## Don't ask me for my CRAN mirror every time
-    .First <- function() {
-            cat("Current R.version is:", as.character(getRversion()), "\n")
-            cat("Current R.repos is:", getOption("repos"), "\n")
-            cat("Current R.Library is:", .libPaths(), "\n")
-            cat("Current R.Workdir is:", getwd(), "\n")
-            cat("\nSuccessfully loaded .Rprofile at:", date(), "\n")
-}
-#+END_SRC
-** Last Function
-.Last() run at the end of the session
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Last.R
-  .Last <- function() {
-    # save command history here? ask=graphics
-    #update.packages(ask= FALSE)  
-    #timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))
-    #try(savehistory("~/.Rhistory"))
-          cat("\nGoodbye at ", date(), "\n")
-  }
-#+END_SRC
-** Main Options
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/options.R
-options(prompt="R:> ", digits=4, show.signif.stars=FALSE)  ## R Prompt
-## WARNING!!! This makes your code less portable/reproducible.
-options(stringsAsFactors=FALSE)
-# Paper size
-options(papersize="a4")
-options(max.print = 20000)
-options(help_type="html")
-Sys.setenv(R_HISTSIZE='100000')
-# General options 
-options("width"=80)                # wide display with multiple monitors
-options(tab.width = 8)
-options("digits.secs" = 3)          # show sub-second time stamps
-  R_ver  <- as.character(getRversion())
-#+END_SRC
-** myFucntions
+** Set Proxy
 #+NAME: setProxy
 #+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
 #+BEGIN_SRC R 
@@ -215,14 +166,14 @@ setProxy  <- function(proxy){
   <<setProxy>>
 #+END_SRC
 
-** Set Library for Share on Dropbox
+** Set Shared Library with Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
 #+NAME:R:setShareLibrary
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesLinux/setShareLibrary.R
 ## set a shared Library for all Machine by Dropbox
 .libPaths("~/Dropbox/config/R/rLib/Linux64/3.1")
 #+END_SRC
-** FIXIT Choose nearest CRAN mirror
+** FIXIT Set nearest CRAN mirror
 Find nearest CRAN to your location from list of CRAN mirrors and set up with
 #+NAME:R:setCRANmirror
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/CRANmirror.R
@@ -302,6 +253,7 @@ options("digits.secs" = 3)          # show sub-second time stamps
 
 ** DOING phdFunctions
 
+* Dot.Rprofile and Rprofole.site 
 ** DONE Linux main R profile which linked to ~/.Rprofile see [[sh:setRprofileLinux ]]
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R
   ### This file is sourced by or symbol linked to ~/.Rprofile
