@@ -1,0 +1,182 @@
+# -*- mode: org; org-export-babel-evaluate: nil -*-
+#+TITLE: Rprofile Note and Control File
+#+AUTHOR: Bingwei TIAN
+#+EMAIL: bwtian@gmail.com
+#+DATE:
+#+OPTIONS: H:4 toc:2 num:2
+#+STARTUP: fold
+#+CREATED:  [2014-05-01 Thu 22:15]
+#+TODO:    TODO(t) FIXIT(f) DOING(d) | DONE(o)
+#+PROPERTY:   header-args  session *R*
+#+PROPERTY:   cache yes
+#+PROPERTY:   tangle yes
+#+DEPENDENCY: run C-c C-v t
+* DONE Workfolow <2014-07-29 Tue>
+make a new envrionment Variables for new user on windows HOME %USERPROFILE%
+only edit rProfile.org, all other files are tangled from it.
+#+BEGIN_SRC dot :file ~/Dropbox/3figs/png/rProfileOrg.png
+digraph {
+//graph [rankdir =LR ]
+node [shape = note]
+"rProfile.org"[color = red]
+"rProfile.dir", "RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir" [shape = folder, style = filled]
+"rProfile.org" -> "rProfile.dir" -> {"RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir"} -> "Functions.R" [label = "tangle", color = blue]
+"rProfile.dir" -> {"R1_Linux_dot_Rprofile.R", "R2_Win_Rprofile_site.R"}[label ="tangle", color = green]
+// "rProfile.dir" -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
+"R1_Linux_dot_Rprofile.R"  -> "setRprofile.sh" -> "~/.Rprofile" [label ="symbolic link", color = green]
+"RprofilesAuto.dir", "RprofilesALin.dir" -> "~/.Rprofile" [label = "sourceDir", dir = back, color = red ]
+"R2_Win_Rprofile_site.R" -> "setRprofile.bat" ->  "~/Rprofile.site" [label = "symbolic link", color = green]
+"RprofilesAuto.dir", "RprofilesAWin.dir" -> "~/Rprofile.site" [label = "sourceDir", dir = back, color = red]
+
+}
+#+END_SRC
+
+#+RESULTS[09d512c39eb4d3c141a2029b390164adf2c89e0f]:
+[[file:~/Dropbox/3figs/png/rProfileOrg.png]]
+
+* TODO R profiles automatically create here
+** Set Library for Share on Dropbox
+\ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
+#+NAME:R:setShareLibrary
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesLinux/setShareLibrary.R
+## set a shared Library for all Machine by Dropbox
+.libPaths("~/Dropbox/config/R/rLib/Linux64/3.1")
+#+END_SRC
+** FIXIT Choose nearest CRAN mirror
+Find nearest CRAN to your location from list of CRAN mirrors and set up with
+#+NAME:R:setCRANmirror
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/CRANmirror.R
+  ## Don't ask me for my CRAN mirror every time
+  local({r <- getOption("repos")
+         r["CRAN"] <- "http://cran.ism.ac.jp/"
+         options(repos=r)})
+#+END_SRC
+** FIXIT First Function
+.First() run at the start of every R session.
+   - Use to load commonly used packages
+   - set default workspace
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/First.R
+    ## Don't ask me for my CRAN mirror every time
+    .First <- function() {
+            cat("Current R.version is:", as.character(getRversion()), "\n")
+            cat("Current R.repos is:", getOption("repos"), "\n")
+            cat("Current R.Library is:", .libPaths(), "\n")
+            cat("Current R.Workdir is:", getwd(), "\n")
+            cat("\nSuccessfully loaded .Rprofile at:", date(), "\n")
+            if (file.exists(".RData")) load(file=".RData")
+}
+#+END_SRC
+** FIXIT Last Function
+.Last() run at the end of the session
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Last.R
+  .Last <- function() {
+    # save command history here? ask=graphics
+    #update.packages(ask= FALSE)
+    #timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))
+    #try(savehistory("~/.Rhistory"))
+          cat("\nGoodbye at ", date(), "\n")
+  }
+#+END_SRC
+** FIXIT Main Options
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/options.R
+options(prompt="R:> ", digits=4, show.signif.stars=FALSE)  ## R Prompt
+## WARNING!!! This makes your code less portable/reproducible.
+options(stringsAsFactors=FALSE)
+# Paper size
+options(papersize="a4")
+options(max.print = 20000)
+options(help_type="html")
+Sys.setenv(R_HISTSIZE='100000')
+# General options
+options(digits=15)
+options("width"=80)                # wide display with multiple monitors
+options(tab.width = 8)
+options("digits.secs" = 3)          # show sub-second time stamps
+
+#+END_SRC
+** DOING myFucntions
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/myFunctions.R
+  R_ver  <- as.character(getRversion())
+  .upR <- function() {
+          if(!require(installr)) {
+                  install.packages("installr")
+          } #load / install+load installr
+          updateR() # this will only work AFTER R 3.0.0 
+          update.packages(checkBuilt=TRUE, ask = FALSE)
+  }
+  .upPkgs <- function() {
+          update.packages(checkBuilt=TRUE, ask = FALSE, dependencies = c('Suggests'))
+  }
+  .proxy  <- function(){
+          Sys.setenv("http_proxy"="http://proxy.kuins.net:8080/")
+  }
+  rnw2r  <- function(Rnw){
+          purl(Rnw)
+
+  }
+#+END_SRC
+** Alias
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Alias.R
+
+#+END_SRC
+
+* DOING phdFunctions
+
+* DONE Linux main R profile which linked to ~/.Rprofile see [[sh:setRprofileLinux ]]
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R
+  ### This file is sourced by or symbol linked to ~/.Rprofile
+  sourceDir <- function(path = ".") {
+          for (file in list.files(path, pattern = "\\.[Rr]$")) {
+                  source(file.path(path,file))
+          }
+  }
+  sourceDir("~/Dropbox/config/R/rProfile/RprofilesAuto")
+  sourceDir("~/Dropbox/config/R/rProfile/RprofilesLinux")
+#+END_SRC
+
+* DONE setup R profile
+C-c C-c
+
+** DONE Linux
+#+NAME: sh:setRprofileLinux
+#+BEGIN_SRC sh  :tangle ~/Dropbox/config/R/rProfile/setRprofileLinux.sh
+# Now=$(date +%Y-%m-%d-%H%M%S)
+# cp ~/.Rprofile ~/.Rprofile.$Now
+unalias ln
+ln -sfv ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R  ~/.Rprofile
+#+END_SRC
+
+#+RESULTS[9bd12cf0c5ab3d8b711828ab5fb06ae476d84ee8]: sh:setRprofileLinux
+: ‘/home/tian/.Rprofile’ -> ‘/home/tian/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R’
+
+** FIXIT Windows
+#+NAME: sh:setRprofileWindows
+#+BEGIN_SRC sh :noeval :tangle ~/Dropbox/config/R/rProfile/setRprofileWindows.bat
+  # Now=$(date +%Y-%m-%d-%H%M%S)
+  # cp ~/.Rprofile ~/.Rprofile.$Now
+  mklink /d "~/R_HOME/etc/Rprofile.site" "~/Dropbox/R/rProfile/R01_Win_Rprofile_site.R"
+#+END_SRC
+
+* Multiple version R
+#!/bin/sh
+## Define Variables
+r3home=/home/tian/Dropbox/soft/linux/R/R-3.0.3
+
+## 0. Set installed R with versions
+sudo ln -siv ${r3home}/bin/R /bin/R3
+#sudo ln -siv ${rdevhome}/bin/R /bin/Rdev
+## 1. Set up R for ESS search
+# sudo ln -siv ${r3home}/bin/R /bin/R
+## 2. set up R for ESS help files
+#!/bin/bash
+# ##############################################################################
+# Setup Renviron for Dropbox Library and Default programs
+# ##############################################################################
+sudo cp /etc/R/Renviron ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R
+sudo rm -f /etc/R/Renviron
+nano ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R
+# sudo cp ~/Dropbox/config/Rconfig/main.Renviron.linux.R Renviron.linux.R
+\ln -svf ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R  /etc/R/Renviron
+
+
+
