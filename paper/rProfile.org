@@ -1,42 +1,209 @@
 # -*- mode: org; org-export-babel-evaluate: nil -*-
-#+TITLE: Rprofile Note and Control File
+#+TITLE: Rprofile
 #+AUTHOR: Bingwei TIAN
 #+EMAIL: bwtian@gmail.com
-#+DATE:
-#+OPTIONS: H:4 toc:2 num:2
-#+STARTUP: fold
-#+CREATED:  [2014-05-01 Thu 22:15]
-#+TODO:    TODO(t) FIXIT(f) DOING(d) | DONE(o)
+#+DATE: [2014-09-19 Fri]
+#+OPTIONS: H:4 toc:2 num:2 email:t
+#+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
+#+CREATED:  [2013-05-01 Wed 22:15]
+#+LICENSE: GPLv3
+#+TODO:    TODO(t!) FIXIT(f!) DOING(d!) | DONE(o!) SOMEDAY(s!)
 #+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
 #+PROPERTY:   tangle yes
 #+DEPENDENCY: run C-c C-v t
+#+DESCRIPTION: This document is both for my .Rrofile setting  and
+               A Rprofile package to make my .Profile portable without Dropbox. 
 * DONE Workfolow <2014-07-29 Tue>
 make a new envrionment Variables for new user on windows HOME %USERPROFILE%
 only edit rProfile.org, all other files are tangled from it.
-#+BEGIN_SRC dot :file ~/Dropbox/3figs/png/rProfileOrg.png
-digraph {
-//graph [rankdir =LR ]
-node [shape = note]
-"rProfile.org"[color = red]
-"rProfile.dir", "RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir" [shape = folder, style = filled]
-"rProfile.org" -> "rProfile.dir" -> {"RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir"} -> "Functions.R" [label = "tangle", color = blue]
-"rProfile.dir" -> {"R1_Linux_dot_Rprofile.R", "R2_Win_Rprofile_site.R"}[label ="tangle", color = green]
-// "rProfile.dir" -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
-"R1_Linux_dot_Rprofile.R"  -> "setRprofile.sh" -> "~/.Rprofile" [label ="symbolic link", color = green]
-"RprofilesAuto.dir", "RprofilesALin.dir" -> "~/.Rprofile" [label = "sourceDir", dir = back, color = red ]
-"R2_Win_Rprofile_site.R" -> "setRprofile.bat" ->  "~/Rprofile.site" [label = "symbolic link", color = green]
-"RprofilesAuto.dir", "RprofilesAWin.dir" -> "~/Rprofile.site" [label = "sourceDir", dir = back, color = red]
+#+BEGIN_SRC dot :file ./Figures/rProfile.png
 
-}
+  digraph {
+  //graph [rankdir =LR ]
+  node [shape = note]
+  "rProfile.org"[color = red]
+  "rProfile.dir", "RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir" [shape = folder, style = filled]
+  "rProfile.org" -> "rProfile.dir" -> {"RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir"} -> "Functions.R" [label = "tangle", color = blue]
+  "rProfile.dir" -> {"R1_Linux_dot_Rprofile.R", "R2_Win_Rprofile_site.R"}[label ="tangle", color = green]
+  // "rProfile.dir" -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
+  "R1_Linux_dot_Rprofile.R"  -> "setRprofile.sh" -> "~/.Rprofile" [label ="symbolic link", color = green]
+  "RprofilesAuto.dir", "RprofilesALin.dir" -> "~/.Rprofile" [label = "sourceDir", dir = back, color = red ]
+  "R2_Win_Rprofile_site.R" -> "setRprofile.bat" ->  "~/Rprofile.site" [label = "symbolic link", color = green]
+  "RprofilesAuto.dir", "RprofilesAWin.dir" -> "~/Rprofile.site" [label = "sourceDir", dir = back, color = red]
+
+  }
 #+END_SRC
 
-#+RESULTS[09d512c39eb4d3c141a2029b390164adf2c89e0f]:
-[[file:~/Dropbox/3figs/png/rProfileOrg.png]]
+#+RESULTS[e2cb9ee5b7121e95f9527d3ed458860a13ffa762]:
+[[file:./Figures/rProfile.png]]
 
+* Install R
+** Install R from Source
+   1. [ ] Download Tarball of Latest R
+          http://cran.r-project.org/
+          ftp://ftp.stat.math.ethz.ch/Software/R/
+          http://cran.r-project.org/src/
+   2. [ ] Install Required Depencies
+   3. [ ] untar and configure
 
+   4. [ ] make and make install
+#+BEGIN_SRC sh :tangle ~/Dropbox/config/R/rInstall/rSource.deb.sh
+#!/bin/sh
+sudo apt-get build-dep r-base-core
+tar zxvf R-* .
+cd R* 
+# ./configure --prefix=/where/you/want/R/to/go (typically /usr/local or /opt/local) and can be set by
+# ./configure --prefix=/home/tian/Dropbox/soft/linux/R/$verR  <options>
+# --with-x=no and --enable-R-shlib if you just use rstudio  # no x need and shared/dynamic library libR.so
+# This will install to the following directories:
+# prefix/bin or bindir            # the front-end shell script and other scripts and executables
+# prefix/man/man1 or mandir/man1  # the man page
+# prefix/LIBnn/R or libdir/R      # all the rest (libraries, on-line help system, . . . ). 
+# Here LIBnn is usually ‘lib’, but may be ‘lib64’ on some 64-bit Linux systems. 
+# ./configure --prefix=/usr/local --with-x=no --enable-R-shlib --enable-prebuilt-html
+./configure --enable-R-shlib --prefix=/usr/local 
+make
+# make check
+# make info
+# make pdf
+# make tests
+sudo make install
+# sudo make install-pdf
+### ebooks, requires ebook-convert from Calibre (http: / / calibre-ebook . com / download)
+#make ebooks
+# make epub
+# make mobi
+# make install rhome=/usr/local/lib64/R-3.0.3
+# make prefix=/path/to/here install-libR   ##made R as a shared/dynamic library
+# make install-info
+# make install-pdf    ## PDF versions of the manuals
+# make install-tests  ## run-time tests that are part of make check-all 
+# ==============================================================================
+# 2 Symbolic Link or Set $PATH, link is more simple and convenient
+# path is better due to no new files created: PATH for R Rstudio ESS ESS help
+# ==============================================================================
 
-* TODO R profiles automatically create here
+# sudo ln -sfv ~/Dropbox/soft/linux/R/${verR}/bin/R /usr/local/lib/R/library
+# sudo ln -sfv ~/Dropbox/soft/linux/R/${verR}/bin/R /usr/local/bin/R
+#sudo mkdir -p -- /usr/local/lib/R
+#sudo ln -sfv ~/Dropbox/soft/linux/R/${verR}/ /usr/local/bin/R
+#mkdir -p -- /usr/local/lib/R/doc/manual
+#sudo rm -vf  /usr/share/man/man1/R.1.gz
+# export PATH=${PATH}:/home/tian/Dropbox/soft/linux/R/R-3.0.3/bin
+# export RSTUDIO_WHICH_R=/home/tian/Dropbox/soft/linux/R/R-3.0.3/bin/R
+# ==============================================================================
+# 3 Check the install
+# ==============================================================================
+echo "which R is:" $(which R)
+echo "whereis R is:" $(whereis R)
+
+#+END_SRC
+** Install R on Deb :Debian Ubuntu, Mint and so on
+Download the script below from here [[file:config/R/rInstall.deb.sh][rInstall.deb.sh]]
+#+BEGIN_SRC sh :tangle ~/Dropbox/config/R/rInstall/rInstall.deb.sh
+# This file is automatically created by rIntall.org, Do not change here!!!
+#!/bin/sh
+sudo apt-get update & apt-get upgrade   ## Update the package list
+sudo apt-get build-dep -y r-base-core  ## Install the depencies
+sudo apt-get install -y r-base-core    ## Install r-base-core
+sudo apt-get install -y r-mathlib      ## Math
+sudo apt-get install -y ess            ## Emacs ess-mode
+sudo apt-get install -y r-doc-html
+sudo apt-get install -y r-doc-info
+sudo apt-get install -y r-doc-pdf
+echo "which R is:" $(which R)
+echo "where R is:" $(whereis R)
+#+END_SRC
+which R is: /usr/bin/R
+
+where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr/share/R /usr/share/man/man1/R.1.gz
+** Install Packages 
+[[http://cran.r-project.org/web/views/][CRAN Task Views]]
+|----------+------------------+-----------------+---+---|
+| Packages | Install          | Update          |   |   |
+|----------+------------------+-----------------+---+---|
+| base     | install.packages | update.packages |   |   |
+| ctv      | install.views    | update.views    |   |   |
+| devtools |                  |                 |   |   |
+|          |                  |                 |   |   |
+|----------+------------------+-----------------+---+---|
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rInstall/ctvPkGs.R
+  # This file was automatically created by rInstall.org and Sourced by Rprofie
+  if(!require(ctv)){
+          install.packages("ctv")
+  } else {
+          install.views("Spatial")                    
+  }
+      
+#+END_SRC
+
+** update R and Installed packages
+** Remove R from Linux
+
+* R profiles settingsautomatically create here
+** Choose nearest CRAN mirror
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/CRANmirror.R
+  ## Don't ask me for my CRAN mirror every time
+addRepo ()
+  local({r <- getOption("repos")
+         r["CRAN"] <- "http://cran.md.tsukuba.ac.jp"
+         options(repos=r)})
+#+END_SRC
+** First Function
+.First() run at the start of every R session. 
+   - Use to load commonly used packages 
+   - set default workspace
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/First.R
+    ## Don't ask me for my CRAN mirror every time
+    .First <- function() {
+            cat("Current R.version is:", as.character(getRversion()), "\n")
+            cat("Current R.repos is:", getOption("repos"), "\n")
+            cat("Current R.Library is:", .libPaths(), "\n")
+            cat("Current R.Workdir is:", getwd(), "\n")
+            cat("\nSuccessfully loaded .Rprofile at:", date(), "\n")
+}
+#+END_SRC
+** Last Function
+.Last() run at the end of the session
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Last.R
+  .Last <- function() {
+    # save command history here? ask=graphics
+    #update.packages(ask= FALSE)  
+    #timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))
+    #try(savehistory("~/.Rhistory"))
+          cat("\nGoodbye at ", date(), "\n")
+  }
+#+END_SRC
+** Main Options
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/options.R
+options(prompt="R:> ", digits=4, show.signif.stars=FALSE)  ## R Prompt
+## WARNING!!! This makes your code less portable/reproducible.
+options(stringsAsFactors=FALSE)
+# Paper size
+options(papersize="a4")
+options(max.print = 20000)
+options(help_type="html")
+Sys.setenv(R_HISTSIZE='100000')
+# General options 
+options("width"=80)                # wide display with multiple monitors
+options(tab.width = 8)
+options("digits.secs" = 3)          # show sub-second time stamps
+  R_ver  <- as.character(getRversion())
+#+END_SRC
+** myFucntions
+#+NAME:r-setProxy
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
+setProxy  <- function(proxy){
+          proxy = "http://proxy.kuins.net:8080/"
+          Sys.setenv("http_proxy" = proxy)
+}
+#+END_SRC
+#+BEGIN_SRC  R :tangle ../R/setProxy.R
+<r-setProxy>
+#+END_SRC
+
+* TODO R profiles 
 ** Set Library for Share on Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
 #+NAME:R:setShareLibrary
@@ -122,9 +289,9 @@ options("digits.secs" = 3)          # show sub-second time stamps
 
 #+END_SRC
 
-* DOING phdFunctions
+** DOING phdFunctions
 
-* DONE Linux main R profile which linked to ~/.Rprofile see [[sh:setRprofileLinux ]]
+** DONE Linux main R profile which linked to ~/.Rprofile see [[sh:setRprofileLinux ]]
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R
   ### This file is sourced by or symbol linked to ~/.Rprofile
   sourceDir <- function(path = ".") {
@@ -159,7 +326,7 @@ ln -sfv ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R  ~/.Rprofile
   mklink /d "~/R_HOME/etc/Rprofile.site" "~/Dropbox/R/rProfile/R01_Win_Rprofile_site.R"
 #+END_SRC
 
-* Multiple version R
+* Multiple version R Control
 #!/bin/sh
 ## Define Variables
 r3home=/home/tian/Dropbox/soft/linux/R/R-3.0.3
@@ -181,4 +348,22 @@ nano ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R
 \ln -svf ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R  /etc/R/Renviron
 
 
+* Linux main R profile which linked to ~/Rprofile see [[sh:setRprofileLinux ]]
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/R00_Linux_Main_Rprofile.R
+  ### This file is sourced by or symbol linked to ~/.Rprofile
+  sourceDir <- function(path = ".") {
+          for (file in list.files(path, pattern = "\\.[Rr]$")) {
+                  source(file.path(path,file))
+          }
+  }
+  sourceDir("~/Dropbox/config/R/rProfile/RprofilesAuto")
+#+END_SRC
 
+* setup R profile
+#+NAME: sh:setRprofileLinux
+#+BEGIN_SRC sh  :tangle ~/Dropbox/config/R/rProfile/setRprofileLinux.sh
+# Now=$(date +%Y-%m-%d-%H%M%S)
+# cp ~/.Rprofile ~/.Rprofile.$Now
+unalias ln
+ln -sfv ~/Dropbox/config/R/rProfile/R00_Linux_Main_Rprofile.R  ~/.Rprofile
+#+END_SRC
