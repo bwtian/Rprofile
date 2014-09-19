@@ -1,0 +1,26 @@
+
+Archived entries from file /home/tian/SparkleShare/Rprofile/paper/rProfile.org
+
+
+* myFucntions
+:PROPERTIES:
+:ARCHIVE_TIME: 2014-09-19 Fri 16:33
+:ARCHIVE_FILE: ~/SparkleShare/Rprofile/paper/rProfile.org
+:ARCHIVE_OLPATH: R profiles settingsautomatically create here
+:ARCHIVE_CATEGORY: rProfile
+:END:
+#+NAME: setProxy
+#+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
+#+BEGIN_SRC R 
+setProxy  <- function(proxy){
+          proxy = "http://proxy.kuins.net:8080/"
+          Sys.setenv("http_proxy" = proxy)
+}
+#+END_SRC
+
+#+RESULTS[e0d183b7c360b5a0ea40484efcae7a7bba407aa4]: setProxy
+
+#+BEGIN_SRC R :tangle ../R/setProxy.R :exports results
+  <<setProxy>>
+#+END_SRC
+
