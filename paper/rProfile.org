@@ -6,8 +6,8 @@
 #+OPTIONS: H:4 toc:2 num:2 email:t
 #+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
 #+CREATED:  [2013-05-01 Wed 22:15]
-#+LICENSE: GPLv3
-#+TODO:    TODO(t!) FIXIT(f!) DOING(d!) | DONE(o!) SOMEDAY(s!)
+#+LICENSE:  All rights reserved by Bingwei Tian
+#+TODO:     TODO(t!) FIXIT(f!) DOING(d!) | DONE(o!) SOMEDAY(s!)
 #+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
 #+PROPERTY:   tangle yes
@@ -23,13 +23,9 @@ Tips:
 + Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
 + Reuse the code by file cross reference ~<<codeName>>~ with header noweb:yes
 + Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
-
+#+NAME: rprofileWorkflow
 #+BEGIN_SRC dot :file ./Figures/rProfile.png
-
-
-
-
-  digraph {
+ {
   //graph [rankdir =LR ]
   node [shape = note]
   "rProfile.org"[color = red]
@@ -45,7 +41,11 @@ Tips:
   }
 #+END_SRC
 
-#+RESULTS[e2cb9ee5b7121e95f9527d3ed458860a13ffa762]:
+#+LABEL: fig:workflow
+#+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
+#+RESULTS[1edc998457806404314490c2d63909b01847d18c]: rprofileWorkflow
+[[file:./Figures/rProfile.png]]
+
 [[file:./Figures/rProfile.png]]
 
 * Install R
@@ -129,15 +129,16 @@ which R is: /usr/bin/R
 
 where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr/share/R /usr/share/man/man1/R.1.gz
 ** Install Packages 
-[[http://cran.r-project.org/web/views/][CRAN Task Views]]
-|----------+------------------+-----------------|
-| Packages | Install          | Update          |
-|----------+------------------+-----------------|
-| base     | install.packages | update.packages |
-| ctv      | install.views    | update.views    |
-| devtools |                  |                 |
-|          |                  |                 |
-|----------+------------------+-----------------|
+[[http://cran.r-project.org/web/views/][CRAN Task Views]] 
+|---------+----------+------------------+-----------------|
+| Type    | Packages | Install          | Update          |
+|---------+----------+------------------+-----------------|
+| CRAN    | base     | install.packages | update.packages |
+| CRAN    | ctv      | install.views    | update.views    |
+| github  | devtools |                  |                 |
+| Tarball |          |                  |                 |
+| Rstudio |          |                  |                 |
+|---------+----------+------------------+-----------------|
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rInstall/ctvPkGs.R
   # This file was automatically created by rInstall.org and Sourced by Rprofie
   if(!require(ctv)){
@@ -145,7 +146,6 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
   } else {
           install.views(c("Spatial", "SpatioTemporal"))                    
   }
-      
 #+END_SRC
 
 ** update R and Installed packages
