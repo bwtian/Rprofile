@@ -15,7 +15,8 @@
 #+DEPENDENCY: run C-c C-v t
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
                A Rprofile package to make my .Profile portable without Dropbox. 
-* DONE Workfolow <2014-07-29 Tue>
+* DONE Workfolow
+ <2014-07-29 Tue>
 Tips: 
 + Only edit this file rProfile.org for all R*thing
 + All setup files are tangled from this file 
@@ -129,20 +130,20 @@ which R is: /usr/bin/R
 where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr/share/R /usr/share/man/man1/R.1.gz
 ** Install Packages 
 [[http://cran.r-project.org/web/views/][CRAN Task Views]]
-|----------+------------------+-----------------+---+---|
-| Packages | Install          | Update          |   |   |
-|----------+------------------+-----------------+---+---|
-| base     | install.packages | update.packages |   |   |
-| ctv      | install.views    | update.views    |   |   |
-| devtools |                  |                 |   |   |
-|          |                  |                 |   |   |
-|----------+------------------+-----------------+---+---|
+|----------+------------------+-----------------|
+| Packages | Install          | Update          |
+|----------+------------------+-----------------|
+| base     | install.packages | update.packages |
+| ctv      | install.views    | update.views    |
+| devtools |                  |                 |
+|          |                  |                 |
+|----------+------------------+-----------------|
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rInstall/ctvPkGs.R
   # This file was automatically created by rInstall.org and Sourced by Rprofie
   if(!require(ctv)){
           install.packages("ctv")
   } else {
-          install.views("Spatial")                    
+          install.views(c("Spatial", "SpatioTemporal"))                    
   }
       
 #+END_SRC
