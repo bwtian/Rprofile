@@ -11,12 +11,18 @@
 #+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
 #+PROPERTY:   tangle yes
+#+PROPERTY:   noweb yes
 #+DEPENDENCY: run C-c C-v t
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
                A Rprofile package to make my .Profile portable without Dropbox. 
 * DONE Workfolow <2014-07-29 Tue>
-make a new envrionment Variables for new user on windows HOME %USERPROFILE%
-only edit rProfile.org, all other files are tangled from it.
+Tips: 
++ Only edit this file rProfile.org for all R*thing
++ All setup files are tangled from this file 
++ Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
++ Reuse the code by file cross reference "<<codeName>>" with header noweb:yes
++ Export to html and view C-c C-e h o
+
 #+BEGIN_SRC dot :file ./Figures/rProfile.png
 
   digraph {
@@ -201,12 +207,11 @@ setProxy  <- function(proxy){
 }
 #+END_SRC
 
-#+RESULTS[e0d183b7c360b5a0ea40484efcae7a7bba407aa4]: setProxy
 
-#+BEGIN_SRC R :tangle ../R/setProxy.R :noweb yes
+#+BEGIN_SRC R :tangle ../R/setProxy.R :noweb yes :exports none
   <<setProxy>>
 #+END_SRC
-[[setProxy]]
+
 * TODO R profiles 
 ** Set Library for Share on Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
