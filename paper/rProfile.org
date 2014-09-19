@@ -193,7 +193,7 @@ options("digits.secs" = 3)          # show sub-second time stamps
 #+END_SRC
 ** myFucntions
 #+NAME: setProxy
-#+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
+# #+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
 #+HEADER: :tangle ../R/setProxy.R
 #+BEGIN_SRC R 
 setProxy  <- function(proxy){
