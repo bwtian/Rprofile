@@ -203,10 +203,10 @@ setProxy  <- function(proxy){
 
 #+RESULTS[e0d183b7c360b5a0ea40484efcae7a7bba407aa4]: setProxy
 
-#+BEGIN_SRC R :tangle ../R/setProxy.R :exports code
+#+BEGIN_SRC R :tangle ../R/setProxy.R :exports results :noweb yes
   <<setProxy>>
 #+END_SRC
-
+[[setProxy]]
 * TODO R profiles 
 ** Set Library for Share on Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
