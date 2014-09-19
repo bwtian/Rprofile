@@ -225,6 +225,8 @@ options(tab.width = 8)
 options("digits.secs" = 3)          # show sub-second time stamps
 
 #+END_SRC
+** Knit Options
+** Raster Options
 ** DOING myFucntions
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/myFunctions.R
   R_ver  <- as.character(getRversion())
