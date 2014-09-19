@@ -200,7 +200,7 @@ setProxy  <- function(proxy){
 }
 #+END_SRC
 #+BEGIN_SRC  R :tangle ../R/setProxy.R
-<r-setProxy>
+<<r-setProxy>>
 #+END_SRC
 
 * TODO R profiles 
