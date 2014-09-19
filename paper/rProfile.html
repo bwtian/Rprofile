@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Rprofile</title>
-<!-- 2014-09-19 Fri 17:01 -->
+<!-- 2014-09-19 Fri 17:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Bingwei TIAN" />
@@ -156,35 +156,29 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-3">3. R profiles settingsautomatically create here</a>
 <ul>
-<li><a href="#sec-3-1">3.1. Choose nearest CRAN mirror</a></li>
-<li><a href="#sec-3-2">3.2. First Function</a></li>
-<li><a href="#sec-3-3">3.3. Last Function</a></li>
-<li><a href="#sec-3-4">3.4. Main Options</a></li>
-<li><a href="#sec-3-5">3.5. myFucntions</a></li>
+<li><a href="#sec-3-1">3.1. Set Proxy</a></li>
+<li><a href="#sec-3-2">3.2. Set Shared Library with Dropbox</a></li>
+<li><a href="#sec-3-3">3.3. Set nearest CRAN mirror</a></li>
+<li><a href="#sec-3-4">3.4. First Function</a></li>
+<li><a href="#sec-3-5">3.5. Last Function</a></li>
+<li><a href="#sec-3-6">3.6. Main Options</a></li>
+<li><a href="#sec-3-7">3.7. myFucntions</a></li>
+<li><a href="#sec-3-8">3.8. Alias</a></li>
+<li><a href="#sec-3-9">3.9. phdFunctions</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. R profiles</a>
+<li><a href="#sec-4">4. Dot.Rprofile and Rprofole.site</a>
 <ul>
-<li><a href="#sec-4-1">4.1. Set Library for Share on Dropbox</a></li>
-<li><a href="#sec-4-2">4.2. Choose nearest CRAN mirror</a></li>
-<li><a href="#sec-4-3">4.3. First Function</a></li>
-<li><a href="#sec-4-4">4.4. Last Function</a></li>
-<li><a href="#sec-4-5">4.5. Main Options</a></li>
-<li><a href="#sec-4-6">4.6. myFucntions</a></li>
-<li><a href="#sec-4-7">4.7. Alias</a></li>
-<li><a href="#sec-4-8">4.8. phdFunctions</a></li>
-<li><a href="#sec-4-9">4.9. Linux main R profile which linked to ~/.Rprofile see </a></li>
+<li><a href="#sec-4-1">4.1. Linux main R profile which linked to ~/.Rprofile see </a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. setup R profile</a>
+<li><a href="#sec-5">5. Quick setting of R profile</a>
 <ul>
 <li><a href="#sec-5-1">5.1. Linux</a></li>
 <li><a href="#sec-5-2">5.2. Windows</a></li>
+<li><a href="#sec-5-3">5.3. Multiple version R Control</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. Multiple version R Control</a></li>
-<li><a href="#sec-7">7. Linux main R profile which linked to ~/Rprofile see </a></li>
-<li><a href="#sec-8">8. setup R profile</a></li>
 </ul>
 </div>
 </div>
@@ -195,8 +189,7 @@ A Rprofile package to make my .Profile portable without Dropbox.
 <h2 id="sec-1"><span class="section-number-2">1</span> Workfolow</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2014-07-29 Tue&gt;</span></span>
-Tips: 
+Tips:  <span class="timestamp-wrapper"><span class="timestamp">&lt;2014-07-29 Tue&gt;</span></span> 
 </p>
 <ul class="org-ul">
 <li>Only edit this file rProfile.org for all R*thing
@@ -210,18 +203,10 @@ Tips:
 <li>Export to html and check it <a href="rProfile.html">here</a>. <b>C-c C-e h o</b>
 </li>
 </ul>
-
-<div id="fig:workflow" class="figure">
-<p><img src="./Figures/rProfile.png" alt="rProfile.png" />
+<p>
+<img src="./Figures/rProfile.png" alt="rProfile.png" />
+<img src="./Figures/rProfile.png" alt="rProfile.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> Work-flow to set up .Rprofile on Linux and Windows</p>
-</div>
-
-
-<div class="figure">
-<p><img src="./Figures/rProfile.png" alt="rProfile.png" />
-</p>
-</div>
 </div>
 </div>
 
@@ -418,89 +403,8 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 <h2 id="sec-3"><span class="section-number-2">3</span> R profiles settingsautomatically create here</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Choose nearest CRAN mirror</h3>
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Set Proxy</h3>
 <div class="outline-text-3" id="text-3-1">
-<div class="org-src-container">
-
-<pre class="src src-R">  <span style="color: #cccccc;">## </span><span style="color: #cccccc;">Don't ask me for my CRAN mirror every time</span>
-<span style="color: #ff6347;">addRepo</span> <span style="color: #20b2aa;">()</span>
-  <span style="color: #ff6347;">local</span><span style="color: #20b2aa;">({</span>r <span style="color: #ff00ff;">&lt;-</span> <span style="color: #ff6347;">getOption</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"repos"</span><span style="color: #20b2aa;">)</span>
-         r<span style="color: #20b2aa;">[</span><span style="color: #00ff00;">"CRAN"</span><span style="color: #20b2aa;">]</span> <span style="color: #ff00ff;">&lt;-</span> <span style="color: #00ff00;">"http://cran.md.tsukuba.ac.jp"</span>
-         <span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>repos<span style="color: #ff00ff;">=</span>r<span style="color: #20b2aa;">)})</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> First Function</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-.First() run at the start of every R session. 
-</p>
-<ul class="org-ul">
-<li>Use to load commonly used packages 
-</li>
-<li>set default workspace
-</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-R">    <span style="color: #cccccc;">## </span><span style="color: #cccccc;">Don't ask me for my CRAN mirror every time</span>
-    <span style="color: #ff6347;">.First</span> <span style="color: #ff00ff;">&lt;-</span> <span style="color: #00ffff;">function</span><span style="color: #20b2aa;">()</span> <span style="color: #20b2aa;">{</span>
-            <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"Current R.version is:"</span>, <span style="color: #ff6347;">as.character</span><span style="color: #20b2aa;">(</span><span style="color: #ff6347;">getRversion</span><span style="color: #20b2aa;">())</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-            <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"Current R.repos is:"</span>, <span style="color: #ff6347;">getOption</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"repos"</span><span style="color: #20b2aa;">)</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-            <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"Current R.Library is:"</span>, <span style="color: #ff6347;">.libPaths</span><span style="color: #20b2aa;">()</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-            <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"Current R.Workdir is:"</span>, <span style="color: #ff6347;">getwd</span><span style="color: #20b2aa;">()</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-            <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"\nSuccessfully loaded .Rprofile at:"</span>, <span style="color: #ff6347;">date</span><span style="color: #20b2aa;">()</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-<span style="color: #20b2aa;">}</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Last Function</h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-.Last() run at the end of the session
-</p>
-<div class="org-src-container">
-
-<pre class="src src-R"><span style="color: #ff6347;">.Last</span> <span style="color: #ff00ff;">&lt;-</span> <span style="color: #00ffff;">function</span><span style="color: #20b2aa;">()</span> <span style="color: #20b2aa;">{</span>
-  <span style="color: #cccccc;"># </span><span style="color: #cccccc;">save command history here? ask=graphics</span>
-  <span style="color: #cccccc;">#</span><span style="color: #cccccc;">update.packages(ask= FALSE)  </span>
-  <span style="color: #cccccc;">#</span><span style="color: #cccccc;">timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))</span>
-  <span style="color: #cccccc;">#</span><span style="color: #cccccc;">try(savehistory("~/.Rhistory"))</span>
-        <span style="color: #ff6347;">cat</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"\nGoodbye at "</span>, <span style="color: #ff6347;">date</span><span style="color: #20b2aa;">()</span>, <span style="color: #00ff00;">"\n"</span><span style="color: #20b2aa;">)</span>
-<span style="color: #20b2aa;">}</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Main Options</h3>
-<div class="outline-text-3" id="text-3-4">
-<div class="org-src-container">
-
-<pre class="src src-R"><span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>prompt<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">"R:&gt; "</span>, digits<span style="color: #ff00ff;">=</span><span style="color: #daa520;">4</span>, show.signif.stars<span style="color: #ff00ff;">=</span><span style="color: #daa520;">FALSE</span><span style="color: #20b2aa;">)</span>  <span style="color: #cccccc;">## </span><span style="color: #cccccc;">R Prompt</span>
-<span style="color: #cccccc;">## </span><span style="color: #cccccc;">WARNING!!! This makes your code less portable/reproducible.</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>stringsAsFactors<span style="color: #ff00ff;">=</span><span style="color: #daa520;">FALSE</span><span style="color: #20b2aa;">)</span>
-<span style="color: #cccccc;"># </span><span style="color: #cccccc;">Paper size</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>papersize<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">"a</span><span style="color: #daa520;">4</span><span style="color: #00ff00;">"</span><span style="color: #20b2aa;">)</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>max.print <span style="color: #ff00ff;">=</span> <span style="color: #daa520;">20000</span><span style="color: #20b2aa;">)</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>help_type<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">"html"</span><span style="color: #20b2aa;">)</span>
-<span style="color: #ff6347;">Sys.setenv</span><span style="color: #20b2aa;">(</span>R_HISTSIZE<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">'</span><span style="color: #daa520;">100000</span><span style="color: #00ff00;">'</span><span style="color: #20b2aa;">)</span>
-<span style="color: #cccccc;"># </span><span style="color: #cccccc;">General options </span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"width"</span><span style="color: #ff00ff;">=</span><span style="color: #daa520;">80</span><span style="color: #20b2aa;">)</span>                <span style="color: #cccccc;"># </span><span style="color: #cccccc;">wide display with multiple monitors</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>tab.width <span style="color: #ff00ff;">=</span> <span style="color: #daa520;">8</span><span style="color: #20b2aa;">)</span>
-<span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"digits.secs"</span> <span style="color: #ff00ff;">=</span> <span style="color: #daa520;">3</span><span style="color: #20b2aa;">)</span>          <span style="color: #cccccc;"># </span><span style="color: #cccccc;">show sub-second time stamps</span>
-  R_ver  <span style="color: #ff00ff;">&lt;-</span> <span style="color: #ff6347;">as.character</span><span style="color: #20b2aa;">(</span><span style="color: #ff6347;">getRversion</span><span style="color: #20b2aa;">())</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> myFucntions</h3>
-<div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 
 <pre class="src src-R" id="setProxy"><span style="color: #ff6347;">setProxy</span>  <span style="color: #ff00ff;">&lt;-</span> <span style="color: #00ffff;">function</span><span style="color: #20b2aa;">(</span>proxy<span style="color: #20b2aa;">){</span>
@@ -511,15 +415,11 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 </div>
 </div>
 </div>
-</div>
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> R profiles</h2>
-<div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Set Library for Share on Dropbox</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Set Shared Library with Dropbox</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
 </p>
@@ -531,9 +431,9 @@ ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/librar
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Choose nearest CRAN mirror</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Set nearest CRAN mirror</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </p>
@@ -547,9 +447,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> First Function</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> First Function</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 .First() run at the start of every R session.
 </p>
@@ -574,9 +474,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Last Function</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Last Function</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 .Last() run at the end of the session
 </p>
@@ -593,9 +493,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-5" class="outline-3">
-<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Main Options</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Main Options</h3>
+<div class="outline-text-3" id="text-3-6">
 <div class="org-src-container">
 
 <pre class="src src-R"><span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>prompt<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">"R:&gt; "</span>, digits<span style="color: #ff00ff;">=</span><span style="color: #daa520;">4</span>, show.signif.stars<span style="color: #ff00ff;">=</span><span style="color: #daa520;">FALSE</span><span style="color: #20b2aa;">)</span>  <span style="color: #cccccc;">## </span><span style="color: #cccccc;">R Prompt</span>
@@ -615,9 +515,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-6" class="outline-3">
-<h3 id="sec-4-6"><span class="section-number-3">4.6</span> myFucntions</h3>
-<div class="outline-text-3" id="text-4-6">
+<div id="outline-container-sec-3-7" class="outline-3">
+<h3 id="sec-3-7"><span class="section-number-3">3.7</span> myFucntions</h3>
+<div class="outline-text-3" id="text-3-7">
 <div class="org-src-container">
 
 <pre class="src src-R">R_ver  <span style="color: #ff00ff;">&lt;-</span> <span style="color: #ff6347;">as.character</span><span style="color: #20b2aa;">(</span><span style="color: #ff6347;">getRversion</span><span style="color: #20b2aa;">())</span>
@@ -642,9 +542,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-7" class="outline-3">
-<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Alias</h3>
-<div class="outline-text-3" id="text-4-7">
+<div id="outline-container-sec-3-8" class="outline-3">
+<h3 id="sec-3-8"><span class="section-number-3">3.8</span> Alias</h3>
+<div class="outline-text-3" id="text-3-8">
 <div class="org-src-container">
 
 <pre class="src src-R"></pre>
@@ -652,13 +552,17 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 
-<div id="outline-container-sec-4-8" class="outline-3">
-<h3 id="sec-4-8"><span class="section-number-3">4.8</span> phdFunctions</h3>
+<div id="outline-container-sec-3-9" class="outline-3">
+<h3 id="sec-3-9"><span class="section-number-3">3.9</span> phdFunctions</h3>
+</div>
 </div>
 
-<div id="outline-container-sec-4-9" class="outline-3">
-<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Linux main R profile which linked to ~/.Rprofile see <a href="#sh:setRprofileLinux">1</a></h3>
-<div class="outline-text-3" id="text-4-9">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Dot.Rprofile and Rprofole.site</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Linux main R profile which linked to ~/.Rprofile see <a href="#sh:setRprofileLinux">1</a></h3>
+<div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
 <pre class="src src-R"><span style="color: #cccccc;">### </span><span style="color: #cccccc;">This file is sourced by or symbol linked to ~/.Rprofile</span>
@@ -676,14 +580,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> setup R profile</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> Quick setting of R profile</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-C-c C-c
-</p>
-</div>
-
-<div id="outline-container-sec-5-1" class="outline-3">
+</div><div id="outline-container-sec-5-1" class="outline-3">
 <h3 id="sec-5-1"><span class="section-number-3">5.1</span> Linux</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
@@ -709,11 +608,10 @@ mklink /d <span style="color: #00ff00;">"~/R_HOME/etc/Rprofile.site"</span> <spa
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Multiple version R Control</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> Multiple version R Control</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 #!/bin/sh
 ## Define Variables
@@ -740,44 +638,13 @@ ln -svf ~/Dropbox/config/Rconfig/Renviron/linux<sub>Renviron</sub>.R  /etc/R/Ren
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Linux main R profile which linked to ~/Rprofile see <a href="#sh:setRprofileLinux">1</a></h2>
-<div class="outline-text-2" id="text-7">
-<div class="org-src-container">
-
-<pre class="src src-R"><span style="color: #cccccc;">### </span><span style="color: #cccccc;">This file is sourced by or symbol linked to ~/.Rprofile</span>
-<span style="color: #ff6347;">sourceDir</span> <span style="color: #ff00ff;">&lt;-</span> <span style="color: #00ffff;">function</span><span style="color: #20b2aa;">(</span>path <span style="color: #ff00ff;">=</span> <span style="color: #00ff00;">"."</span><span style="color: #20b2aa;">)</span> <span style="color: #20b2aa;">{</span>
-        <span style="color: #00ffff;">for</span> <span style="color: #20b2aa;">(</span>file <span style="color: #00ffff;">in</span> <span style="color: #ff6347;">list.files</span><span style="color: #20b2aa;">(</span>path, pattern <span style="color: #ff00ff;">=</span> <span style="color: #00ff00;">"\\.[Rr]$"</span><span style="color: #20b2aa;">))</span> <span style="color: #20b2aa;">{</span>
-                <span style="color: #ff00ff;">source</span><span style="color: #20b2aa;">(</span><span style="color: #ff6347;">file.path</span><span style="color: #20b2aa;">(</span>path,file<span style="color: #20b2aa;">))</span>
-        <span style="color: #20b2aa;">}</span>
-<span style="color: #20b2aa;">}</span>
-<span style="color: #ff6347;">sourceDir</span><span style="color: #20b2aa;">(</span><span style="color: #00ff00;">"~/Dropbox/config/R/rProfile/RprofilesAuto"</span><span style="color: #20b2aa;">)</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> setup R profile</h2>
-<div class="outline-text-2" id="text-8">
-<div class="org-src-container">
-
-<pre class="src src-sh" id="sh:setRprofileLinux"><span style="color: #cccccc;"># </span><span style="color: #cccccc;">Now=$(</span><span style="color: #fa8072;">date</span><span style="color: #cccccc;"> +%Y-%m-%d-%H%M%S)</span>
-<span style="color: #cccccc;"># </span><span style="color: #cccccc;">cp ~/.Rprofile ~/.Rprofile.$Now</span>
-<span style="color: #20b2aa;">unalias</span> ln
-ln -sfv ~/Dropbox/config/R/rProfile/R<span style="color: #daa520;">00</span>_Linux_Main_Rprofile.R  ~/.Rprofile
-</pre>
-</div>
-</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2014-09-19 Fri]</span></span></p>
 <p class="author">Author: Bingwei TIAN</p>
 <p class="email">Email: <a href="mailto:bwtian@gmail.com">bwtian@gmail.com</a></p>
-<p class="date">Created: 2014-09-19 Fri 17:01</p>
+<p class="date">Created: 2014-09-19 Fri 17:11</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
