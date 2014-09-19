@@ -1,0 +1,15 @@
+
+{
+ //graph [rankdir =LR ]
+ node [shape = note]
+ "rProfile.org"[color = red]
+ "rProfile.dir", "RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir" [shape = folder, style = filled]
+ "rProfile.org" -> "rProfile.dir" -> {"RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir"} -> "Functions.R" [label = "tangle", color = blue]
+ "rProfile.dir" -> {"R1_Linux_dot_Rprofile.R", "R2_Win_Rprofile_site.R"}[label ="tangle", color = green]
+ // "rProfile.dir" -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
+ "R1_Linux_dot_Rprofile.R"  -> "setRprofile.sh" -> "~/.Rprofile" [label ="symbolic link", color = green]
+ "RprofilesAuto.dir", "RprofilesALin.dir" -> "~/.Rprofile" [label = "sourceDir", dir = back, color = red ]
+ "R2_Win_Rprofile_site.R" -> "setRprofile.bat" ->  "~/Rprofile.site" [label = "symbolic link", color = green]
+ "RprofilesAuto.dir", "RprofilesAWin.dir" -> "~/Rprofile.site" [label = "sourceDir", dir = back, color = red]
+
+ }
