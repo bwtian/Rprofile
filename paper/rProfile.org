@@ -223,7 +223,6 @@ options(digits=15)
 options("width"=80)                # wide display with multiple monitors
 options(tab.width = 8)
 options("digits.secs" = 3)          # show sub-second time stamps
-
 #+END_SRC
 ** Knit Options
 ** Raster Options
@@ -249,8 +248,13 @@ options("digits.secs" = 3)          # show sub-second time stamps
   }
 #+END_SRC
 ** Alias
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Alias.R
-
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/rAlias.R
+  cd  <- setwd
+  pwd <- getwd
+  h   <- head
+  s   <- summary
+  n   <- names
+  len <- length
 #+END_SRC
 
 ** DOING phdFunctions
