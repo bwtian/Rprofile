@@ -191,6 +191,22 @@ options(tab.width = 8)
 options("digits.secs" = 3)          # show sub-second time stamps
   R_ver  <- as.character(getRversion())
 #+END_SRC
+** myFucntions
+#+NAME: setProxy
+#+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
+#+BEGIN_SRC R 
+setProxy  <- function(proxy){
+          proxy = "http://proxy.kuins.net:8080/"
+          Sys.setenv("http_proxy" = proxy)
+}
+#+END_SRC
+
+#+RESULTS[e0d183b7c360b5a0ea40484efcae7a7bba407aa4]: setProxy
+
+#+BEGIN_SRC R :tangle ../R/setProxy.R :exports code
+  <<setProxy>>
+#+END_SRC
+
 * TODO R profiles 
 ** Set Library for Share on Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
