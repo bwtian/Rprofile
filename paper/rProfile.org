@@ -16,8 +16,8 @@
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
                A Rprofile package to make my .Profile portable without Dropbox. 
 * DONE Workfolow
- <2014-07-29 Tue>
-Tips: 
+
+Tips:  <2014-07-29 Tue> 
 + Only edit this file rProfile.org for all R*thing
 + All setup files are tangled from this file 
 + Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
@@ -45,7 +45,6 @@ Tips:
 #+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
 #+RESULTS[1edc998457806404314490c2d63909b01847d18c]: rprofileWorkflow
 [[file:./Figures/rProfile.png]]
-
 [[file:./Figures/rProfile.png]]
 
 * Install R
@@ -216,7 +215,6 @@ setProxy  <- function(proxy){
   <<setProxy>>
 #+END_SRC
 
-* TODO R profiles 
 ** Set Library for Share on Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
 #+NAME:R:setShareLibrary
@@ -316,9 +314,7 @@ options("digits.secs" = 3)          # show sub-second time stamps
   sourceDir("~/Dropbox/config/R/rProfile/RprofilesLinux")
 #+END_SRC
 
-* DONE setup R profile
-C-c C-c
-
+* DONE Quick setting of R profile
 ** DONE Linux
 #+NAME: sh:setRprofileLinux
 #+BEGIN_SRC sh  :tangle ~/Dropbox/config/R/rProfile/setRprofileLinux.sh
@@ -339,7 +335,7 @@ ln -sfv ~/Dropbox/config/R/rProfile/R00_Linux_dot_Rprofile.R  ~/.Rprofile
   mklink /d "~/R_HOME/etc/Rprofile.site" "~/Dropbox/R/rProfile/R01_Win_Rprofile_site.R"
 #+END_SRC
 
-* Multiple version R Control
+** SOMEDAY Multiple version R Control
 #!/bin/sh
 ## Define Variables
 r3home=/home/tian/Dropbox/soft/linux/R/R-3.0.3
@@ -361,22 +357,4 @@ nano ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R
 \ln -svf ~/Dropbox/config/Rconfig/Renviron/linux_Renviron.R  /etc/R/Renviron
 
 
-* Linux main R profile which linked to ~/Rprofile see [[sh:setRprofileLinux ]]
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/R00_Linux_Main_Rprofile.R
-  ### This file is sourced by or symbol linked to ~/.Rprofile
-  sourceDir <- function(path = ".") {
-          for (file in list.files(path, pattern = "\\.[Rr]$")) {
-                  source(file.path(path,file))
-          }
-  }
-  sourceDir("~/Dropbox/config/R/rProfile/RprofilesAuto")
-#+END_SRC
 
-* setup R profile
-#+NAME: sh:setRprofileLinux
-#+BEGIN_SRC sh  :tangle ~/Dropbox/config/R/rProfile/setRprofileLinux.sh
-# Now=$(date +%Y-%m-%d-%H%M%S)
-# cp ~/.Rprofile ~/.Rprofile.$Now
-unalias ln
-ln -sfv ~/Dropbox/config/R/rProfile/R00_Linux_Main_Rprofile.R  ~/.Rprofile
-#+END_SRC
