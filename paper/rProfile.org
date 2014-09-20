@@ -46,17 +46,21 @@ Tips:  <2014-07-29 Tue>
 [[file:./Figures/rProfile.png]]
 
 * Packages Structure
-|----------+-----------+-------------------|
-|          | Part1     | ~<<Part2>>~       |
-|----------+-----------+-------------------|
-| Target   | .Rprofile | Rprofile Packages |
-|----------+-----------+-------------------|
-| Property | #+HEADER: | #+HEADER:         |
-| #+NAME:  | Name      | NULL              |
-| :tangle  | File      | File(../R)        |
-| :noweb   | no        | yes               |
-| :export  | no        | yes(code)         |
-|----------+-----------+-------------------|
+
+** Objective
+Make most frequently used Options, Variables, Functions, and Shortcuts portable
+** Documents Structure
+|------------+-----------+-------------------|
+| Org Header | Part1     | ~<<Part2>>~       |
+|------------+-----------+-------------------|
+| Target     | .Rprofile | Rprofile Packages |
+|------------+-----------+-------------------|
+| Property   | #+HEADER: | #+HEADER:         |
+| #+NAME:    | Name      | NULL              |
+| :tangle    | File      | File(../R)        |
+| :noweb     | no        | yes               |
+| :export    | no        | yes(code)         |
+|------------+-----------+-------------------|
 * Install R
 ** Install R from Source
    1. [ ] Download Tarball of Latest R
