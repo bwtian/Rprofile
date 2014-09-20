@@ -42,9 +42,9 @@ Tips:  <2014-07-29 Tue>
 
 #+LABEL: fig:workflow
 #+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
-#+RESULTS[1edc998457806404314490c2d63909b01847d18c]: rprofileWorkflow
-[file:./Figures/rProfile.png]]
+#+RESULTS[4f5ef77573c9edea83b31be3c25f3a51bfc05baf]: rprofileWorkflow
 [[file:./Figures/rProfile.png]]
+
 
 * Packages Structure
 ** Objective
