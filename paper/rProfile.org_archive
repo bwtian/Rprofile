@@ -26,3 +26,27 @@ Archived entries from file /home/tian/SparkleShare/Rprofile/paper/rProfile.org
 #+END_SRC 
 
 
+
+* 
+:PROPERTIES:
+:ARCHIVE_TIME: 2014-09-20 Sat 12:31
+:ARCHIVE_FILE: ~/SparkleShare/Rprofile/paper/rProfile.org
+:ARCHIVE_CATEGORY: rProfile
+:END:
+#+NAME: setAlias
+#+BEGIN_SRC R  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
+  cd  <- setwd
+  pwd <- getwd
+  h   <- head
+  s   <- summary
+  n   <- names
+  len <- length
+#+END_SRC
+
+#+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
+  <<setAlias>>
+#+END_SRC 
+
+
+** DOING phdFunctions
+
