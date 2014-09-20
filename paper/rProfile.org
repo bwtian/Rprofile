@@ -242,8 +242,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
           purl(Rnw)
 
   }
-#+END_SEC
-
+#+END_SRC
+** Set Alias for shortcut
 #+NAME: setAlias
 #+BEGIN_SRC R  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
   cd  <- setwd
