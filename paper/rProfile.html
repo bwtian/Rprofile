@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Rprofile</title>
-<!-- 2014-09-20 Sat 12:52 -->
+<!-- 2014-09-20 Sat 12:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Bingwei TIAN" />
@@ -165,14 +165,14 @@ for the JavaScript code in this tag.
 <li><a href="#sec-4-1">4.1. R profile Variables</a></li>
 <li><a href="#sec-4-2">4.2. Set Proxy</a></li>
 <li><a href="#sec-4-3">4.3. Set Shared Library with Dropbox</a></li>
-<li><a href="#sec-4-4">4.4. Set nearest CRAN mirror</a></li>
-<li><a href="#sec-4-5">4.5. First Function</a></li>
-<li><a href="#sec-4-6">4.6. Last Function</a></li>
-<li><a href="#sec-4-7">4.7. Main Options</a></li>
-<li><a href="#sec-4-8">4.8. Knit Options</a></li>
-<li><a href="#sec-4-9">4.9. Raster Options</a></li>
-<li><a href="#sec-4-10">4.10. myFucntions</a></li>
-<li><a href="#sec-4-11">4.11. Set Alias for shortcut</a></li>
+<li><a href="#sec-4-4">4.4. Set Alias for shortcut</a></li>
+<li><a href="#sec-4-5">4.5. Set nearest CRAN mirror</a></li>
+<li><a href="#sec-4-6">4.6. First Function</a></li>
+<li><a href="#sec-4-7">4.7. Last Function</a></li>
+<li><a href="#sec-4-8">4.8. Main Options</a></li>
+<li><a href="#sec-4-9">4.9. Knit Options</a></li>
+<li><a href="#sec-4-10">4.10. Raster Options</a></li>
+<li><a href="#sec-4-11">4.11. myFucntions</a></li>
 <li><a href="#sec-4-12">4.12. phdFunctions</a></li>
 </ul>
 </li>
@@ -516,8 +516,27 @@ ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/librar
 </div>
 </div>
 <div id="outline-container-sec-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Set nearest CRAN mirror</h3>
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Set Alias for shortcut</h3>
 <div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>State &ldquo;FIXIT&rdquo;      from &ldquo;DOING&rdquo;      <span class="timestamp-wrapper"><span class="timestamp">[2014-09-20 Sat 12:51]</span></span>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-R">cd  <span style="color: #ff00ff;">&lt;-</span> setwd
+pwd <span style="color: #ff00ff;">&lt;-</span> getwd
+h   <span style="color: #ff00ff;">&lt;-</span> head
+s   <span style="color: #ff00ff;">&lt;-</span> summary
+n   <span style="color: #ff00ff;">&lt;-</span> names
+len <span style="color: #ff00ff;">&lt;-</span> length
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Set nearest CRAN mirror</h3>
+<div class="outline-text-3" id="text-4-5">
 <p>
 Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </p>
@@ -531,9 +550,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-5" class="outline-3">
-<h3 id="sec-4-5"><span class="section-number-3">4.5</span> First Function</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> First Function</h3>
+<div class="outline-text-3" id="text-4-6">
 <p>
 .First() run at the start of every R session.
 </p>
@@ -558,9 +577,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-6" class="outline-3">
-<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Last Function</h3>
-<div class="outline-text-3" id="text-4-6">
+<div id="outline-container-sec-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Last Function</h3>
+<div class="outline-text-3" id="text-4-7">
 <p>
 .Last() run at the end of the session
 </p>
@@ -577,9 +596,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-7" class="outline-3">
-<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Main Options</h3>
-<div class="outline-text-3" id="text-4-7">
+<div id="outline-container-sec-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Main Options</h3>
+<div class="outline-text-3" id="text-4-8">
 <div class="org-src-container">
 
 <pre class="src src-R"><span style="color: #ff6347;">options</span><span style="color: #20b2aa;">(</span>prompt<span style="color: #ff00ff;">=</span><span style="color: #00ff00;">"R:&gt; "</span>, digits<span style="color: #ff00ff;">=</span><span style="color: #daa520;">4</span>, show.signif.stars<span style="color: #ff00ff;">=</span><span style="color: #daa520;">FALSE</span><span style="color: #20b2aa;">)</span>  <span style="color: #cccccc;">## </span><span style="color: #cccccc;">R Prompt</span>
@@ -599,15 +618,15 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-8" class="outline-3">
-<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Knit Options</h3>
-</div>
 <div id="outline-container-sec-4-9" class="outline-3">
-<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Raster Options</h3>
+<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Knit Options</h3>
 </div>
 <div id="outline-container-sec-4-10" class="outline-3">
-<h3 id="sec-4-10"><span class="section-number-3">4.10</span> myFucntions</h3>
-<div class="outline-text-3" id="text-4-10">
+<h3 id="sec-4-10"><span class="section-number-3">4.10</span> Raster Options</h3>
+</div>
+<div id="outline-container-sec-4-11" class="outline-3">
+<h3 id="sec-4-11"><span class="section-number-3">4.11</span> myFucntions</h3>
+<div class="outline-text-3" id="text-4-11">
 <div class="org-src-container">
 
 <pre class="src src-R">R_ver  <span style="color: #ff00ff;">&lt;-</span> <span style="color: #ff6347;">as.character</span><span style="color: #20b2aa;">(</span><span style="color: #ff6347;">getRversion</span><span style="color: #20b2aa;">())</span>
@@ -625,25 +644,6 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
         <span style="color: #ff6347;">purl</span><span style="color: #20b2aa;">(</span>Rnw<span style="color: #20b2aa;">)</span>
 
 <span style="color: #20b2aa;">}</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-4-11" class="outline-3">
-<h3 id="sec-4-11"><span class="section-number-3">4.11</span> Set Alias for shortcut</h3>
-<div class="outline-text-3" id="text-4-11">
-<ul class="org-ul">
-<li>State &ldquo;FIXIT&rdquo;      from &ldquo;DOING&rdquo;      <span class="timestamp-wrapper"><span class="timestamp">[2014-09-20 Sat 12:51]</span></span>
-</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-R">cd  <span style="color: #ff00ff;">&lt;-</span> setwd
-pwd <span style="color: #ff00ff;">&lt;-</span> getwd
-h   <span style="color: #ff00ff;">&lt;-</span> head
-s   <span style="color: #ff00ff;">&lt;-</span> summary
-n   <span style="color: #ff00ff;">&lt;-</span> names
-len <span style="color: #ff00ff;">&lt;-</span> length
 </pre>
 </div>
 </div>
@@ -739,10 +739,10 @@ ln -svf ~/Dropbox/config/Rconfig/Renviron/linux<sub>Renviron</sub>.R  /etc/R/Ren
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2014-09-19 Fri]</span></span></p>
+<p class="date">Date: \today</p>
 <p class="author">Author: Bingwei TIAN</p>
 <p class="email">Email: <a href="mailto:bwtian@gmail.com">bwtian@gmail.com</a></p>
-<p class="date">Created: 2014-09-20 Sat 12:52</p>
+<p class="date">Created: 2014-09-20 Sat 12:57</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
