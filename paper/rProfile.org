@@ -156,7 +156,7 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 ** DONE Set Proxy
 #+NAME: setProxy
 #+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
-#+BEGIN_SRC R 
+#+BEGIN_SRC R :exports none
 setProxy  <- function(proxy){
           proxy = "http://proxy.kuins.net:8080/"
           Sys.setenv("http_proxy" = proxy)
@@ -164,7 +164,7 @@ setProxy  <- function(proxy){
 #+END_SRC
 
 
-#+BEGIN_SRC R :tangle ../R/setProxy.R :noweb yes :exports none
+#+BEGIN_SRC R :tangle ../R/setProxy.R :noweb yes 
   <<setProxy>>
 #+END_SRC
 
@@ -247,8 +247,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
   }
 #+END_SEC
 ** Alias
-#+NAME: rAlias
-#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/rAlias.R
+#+NAME: setAlias
+#+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
   cd  <- setwd
   pwd <- getwd
   h   <- head
@@ -257,10 +257,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
   len <- length
 #+END_SRC
 
-
-
-#+BEGIN_SRC R  :tangle ../R/rAlias.R :noweb yes
-     <<rAlias>>
+#+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
+  <<setAlias>>
 #+END_SRC 
 
 
