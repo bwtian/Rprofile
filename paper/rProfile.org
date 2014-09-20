@@ -44,7 +44,6 @@ Tips:  <2014-07-29 Tue>
   rProfileDir, rProfileDirAuto, rProfileDirAutoLin, rProfileDirAutoWin [shape = folder, style = filled]
   org -> rProfileDir -> {rProfileDirAuto, rProfileDirAutoLin, rProfileAutoWin} -> fun [label = "tangle", color = blue]
   rProfileDir -> {linRprofile, winRporfile}[label ="tangle", color = green]
-  // rProfileDir -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
   linRprofile  -> setLin -> dotRprofile [label ="symbolic link", color = green]
   winRporfile -> setWin ->  siteRrofile [label = "symbolic link", color = green]
   rProfileDirAuto -> rProfileAutoLin -> dotRprofile [label = "sourceDir", dir = back, color = red ]
@@ -52,12 +51,12 @@ Tips:  <2014-07-29 Tue>
   }
 #+END_SRC
 
-#+RESULTS[65066a225ec4441131f82df079cb1357170d2a2a]: rprofileWorkflow
-[[file:./Figures/rProfile.png]]
+
 
 #+LABEL: fig:workflow
 #+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
-
+#+RESULTS[a984df6b1bd5fc7daa786c791392ba1dd9d5430e]: rprofileWorkflow
+[[file:./Figures/rProfile.png]]
 
 
 * Packages Structure
