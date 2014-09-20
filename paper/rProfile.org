@@ -26,24 +26,38 @@ Tips:  <2014-07-29 Tue>
 #+BEGIN_SRC dot :file ./Figures/rProfile.png :exports results
  {
   //graph [rankdir =LR ]
+  //node
   node [shape = note]
-  "rProfile.org"[color = red]
-  "rProfile.dir", "RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir" [shape = folder, style = filled]
-  "rProfile.org" -> "rProfile.dir" -> {"RprofilesAuto.dir","RprofilesALin.dir", "RprofilesAWin.dir"} -> "Functions.R" [label = "tangle", color = blue]
-  "rProfile.dir" -> {"R1_Linux_dot_Rprofile.R", "R2_Win_Rprofile_site.R"}[label ="tangle", color = green]
-  // "rProfile.dir" -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
-  "R1_Linux_dot_Rprofile.R"  -> "setRprofile.sh" -> "~/.Rprofile" [label ="symbolic link", color = green]
-  "RprofilesAuto.dir", "RprofilesALin.dir" -> "~/.Rprofile" [label = "sourceDir", dir = back, color = red ]
-  "R2_Win_Rprofile_site.R" -> "setRprofile.bat" ->  "~/Rprofile.site" [label = "symbolic link", color = green]
-  "RprofilesAuto.dir", "RprofilesAWin.dir" -> "~/Rprofile.site" [label = "sourceDir", dir = back, color = red]
-
+  org [label = "rProfile.org", color = red]
+  rProfileDir [label =  "rProfile.dir"] 
+  rProfileDirAuto [label =  "RProfilesAuto.dir"] 
+  rProfileDirAutoLin [label =  "RProfilesAutoLin.dir"] 
+  rProfileDirAutoWin [label =  "RProfilesAutoWin.dir"] 
+  linRprofile [label =  "R1_Linux_dot_Rprofile.R" ]
+  winRporfile [label =  "R2_Win_Rprofile_site.R"]
+  setLin [label = "setRprofile.sh"]
+  setWin [label = "setRprofile.bat"]
+  dotRprofile [label = "~/.Rprofile"]
+  siteRrofile [label = "~/Rprofile.site"]
+  fun [label = "Functions.R"]
+  //path
+  rProfileDir, rProfileDirAuto, rProfileDirAutoLin, rProfileDirAutoWin [shape = folder, style = filled]
+  org -> rProfileDir -> {rProfileDirAuto, rProfileDirAutoLin, rProfileAutoWin} -> fun [label = "tangle", color = blue]
+  rProfileDir -> {linRprofile, winRporfile}[label ="tangle", color = green]
+  // rProfileDir -> {"setRprofile.sh", "setRprofile.bat"}[label ="tangle"]
+  linRprofile  -> setLin -> dotRprofile [label ="symbolic link", color = green]
+  winRporfile -> setWin ->  siteRrofile [label = "symbolic link", color = green]
+  rProfileDirAuto -> rProfileAutoLin -> dotRprofile [label = "sourceDir", dir = back, color = red ]
+  rProfileDirAuto -> rProfileAutoWin -> siteRrofile [label = "sourceDir", dir = back, color = red]
   }
 #+END_SRC
 
+#+RESULTS[65066a225ec4441131f82df079cb1357170d2a2a]: rprofileWorkflow
+[[file:./Figures/rProfile.png]]
+
 #+LABEL: fig:workflow
 #+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
-#+RESULTS[4f5ef77573c9edea83b31be3c25f3a51bfc05baf]: rprofileWorkflow
-[[file:./Figures/rProfile.png]]
+
 
 
 * Packages Structure
