@@ -10,8 +10,6 @@
 #+TODO:     TODO(t!) FIXIT(f!) DOING(d!) | DONE(o!) SOMEDAY(s!)
 #+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
-#+PROPERTY:   tangle yes
-#+PROPERTY:   noweb yes
 #+DEPENDENCY: run C-c C-v t
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
                A Rprofile package to make my .Profile portable
@@ -162,7 +160,6 @@ setProxy  <- function(proxy){
           Sys.setenv("http_proxy" = proxy)
 }
 #+END_SRC
-
 
 #+BEGIN_SRC R :tangle ../R/setProxy.R :noweb yes 
   <<setProxy>>
