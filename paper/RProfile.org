@@ -7,7 +7,7 @@
 #+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
 #+CREATED:  [2013-05-01 Wed 22:15]
 #+LICENSE:  All rights reserved by Bingwei Tian
-#+TODO:     TODO(t!) FIXIT(f!) DOING(d!) | DONE(o!) SOMEDAY(s!)
+#+TODO:     TODO(t!) MORE(m!) NEXT(n!) | DONE(o!) SOMEDAY(s!)
 #+PROPERTY:   header-args:R  session *R*
 #+PROPERTY:   cache yes
 #+DEPENDENCY: run C-c C-v t
@@ -200,7 +200,7 @@ setProxy  <- function(proxy){
 ## set a shared Library for all Machine by Dropbox
 .libPaths("~/Dropbox/config/R/rLib/Linux64/3.1")
 #+END_SRC
-** FIXIT Set Alias for shortcut
+** MORE Set Alias for shortcut
 - State "FIXIT"      from "DOING"      [2014-09-20 Sat 12:51]
 #+NAME: setAlias
 #+HEADER:  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
@@ -218,7 +218,9 @@ setProxy  <- function(proxy){
 #+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
   <<setAlias>>
 #+END_SRC 
-** FIXIT Set nearest CRAN mirror
+** MORE Set nearest CRAN mirror
+- State "MORE"       from "TODO"       [2014-09-20 Sat 20:52]
+- State "TODO"       from ""           [2014-09-20 Sat 20:52]
 Find nearest CRAN to your location from list of CRAN mirrors and set up with
 #+NAME:R:setCRANmirror
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/CRANmirror.R
@@ -227,7 +229,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
          r["CRAN"] <- "http://cran.ism.ac.jp/"
          options(repos=r)})
 #+END_SRC
-** FIXIT First Function
+** MORE First Function
+- State "MORE"       from "TODO"       [2014-09-20 Sat 20:52]
+- State "TODO"       from ""           [2014-09-20 Sat 20:52]
 .First() run at the start of every R session.
    - Use to load commonly used packages
    - set default workspace
@@ -242,7 +246,9 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
             if (file.exists(".RData")) load(file=".RData")
 }
 #+END_SRC
-** FIXIT Last Function
+** MORE Last Function
+- State "MORE"       from "TODO"       [2014-09-20 Sat 20:52]
+- State "TODO"       from ""           [2014-09-20 Sat 20:52]
 .Last() run at the end of the session
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/Last.R
   .Last <- function() {
@@ -253,7 +259,7 @@ Find nearest CRAN to your location from list of CRAN mirrors and set up with
           cat("\nGoodbye at ", date(), "\n")
   }
 #+END_SRC
-** FIXIT Main Options
+** MORE Main Options
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/options.R
 options(prompt="R:> ", digits=4, show.signif.stars=FALSE)  ## R Prompt
 ## WARNING!!! This makes your code less portable/reproducible.
@@ -271,7 +277,15 @@ options("digits.secs" = 3)          # show sub-second time stamps
 #+END_SRC
 ** TODO Knit Options
 ** TODO Raster Options
-** DOING myFucntions
+** NEXT sourceDir
+#+BEGIN_SRC R :tangle ../R/sourceDir.R
+  sourceDir <- function(path = ".") {
+           for (file in list.files(path, pattern = "\\.[Rr]$")) {
+           source(file.path(path,file))
+           }
+  }
+#+END_SRC 
+** MORE myFucntions
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/myFunctions.R
   R_ver  <- as.character(getRversion())
   .upR <- function() {
