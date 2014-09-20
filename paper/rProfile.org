@@ -3,7 +3,7 @@
 #+AUTHOR: Bingwei TIAN
 #+EMAIL: bwtian@gmail.com
 #+DATE: [2014-09-19 Fri]
-#+OPTIONS: H:4 toc:2 num:2 email:t
+#+OPTIONS: H:4 toc:2 num:2 email:t todo:nil tag:not-in-toc
 #+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
 #+CREATED:  [2013-05-01 Wed 22:15]
 #+LICENSE:  All rights reserved by Bingwei Tian
@@ -46,7 +46,6 @@ Tips:  <2014-07-29 Tue>
 [[file:./Figures/rProfile.png]]
 
 * Packages Structure
-
 ** Objective
 Make most frequently used Options, Variables, Functions, and Shortcuts portable
 ** Documents Structure
@@ -180,7 +179,7 @@ setProxy  <- function(proxy){
   <<setProxy>>
 #+END_SRC
 
-** Set Shared Library with Dropbox
+** DONE Set Shared Library with Dropbox
 \ln -sfv ~/Dropbox/soft/linux/R/library/3.0 ~/Dropbox/soft/linux/R/R-3.0.3/library
 #+NAME:R:setShareLibrary
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesLinux/setShareLibrary.R
@@ -258,7 +257,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
 
   }
 #+END_SRC
-** Set Alias for shortcut
+** FIXIT Set Alias for shortcut
+- State "FIXIT"      from "DOING"      [2014-09-20 Sat 12:51]
 #+NAME: setAlias
 #+HEADER:  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
 #+BEGIN_SRC R :exports none
