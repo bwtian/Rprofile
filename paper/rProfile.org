@@ -2,7 +2,7 @@
 #+TITLE: Rprofile
 #+AUTHOR: Bingwei TIAN
 #+EMAIL: bwtian@gmail.com
-#+DATE: \today
+#+DATE: 
 #+OPTIONS: H:4 toc:2 num:2 email:t todo:nil tag:not-in-toc
 #+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
 #+CREATED:  [2013-05-01 Wed 22:15]
