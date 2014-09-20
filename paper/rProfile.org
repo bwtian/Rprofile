@@ -245,7 +245,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
 #+END_SRC
 ** Set Alias for shortcut
 #+NAME: setAlias
-#+BEGIN_SRC R  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
+#+HEADER:  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
+#+BEGIN_SRC R :exports none
   cd  <- setwd
   pwd <- getwd
   h   <- head
