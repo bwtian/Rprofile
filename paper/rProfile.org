@@ -23,7 +23,7 @@ Tips:  <2014-07-29 Tue>
 + Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
 
 #+NAME: rprofileWorkflow
-#+BEGIN_SRC dot :file ./Figures/rProfile.png :exports results
+#+BEGIN_SRC dot :file ./Figures/rProfileWorkflow.png 
  {
   //graph [rankdir =LR ]
   //node
@@ -55,8 +55,8 @@ Tips:  <2014-07-29 Tue>
 
 #+LABEL: fig:workflow
 #+CAPTION: Work-flow to set up .Rprofile on Linux and Windows
-#+RESULTS[a984df6b1bd5fc7daa786c791392ba1dd9d5430e]: rprofileWorkflow
-[[file:./Figures/rProfile.png]]
+#+RESULTS[326eea1fe3e90ecf6defff5d03950f523f4877bd]: rprofileWorkflow
+[[file:./Figures/rProfileWorkflow.png]]
 
 
 * Packages Structure
