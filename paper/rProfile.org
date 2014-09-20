@@ -23,7 +23,7 @@ Tips:  <2014-07-29 Tue>
 + Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
 
 #+NAME: rprofileWorkflow
-#+BEGIN_SRC dot :file ./Figures/rProfile.png :exports none
+#+BEGIN_SRC dot :file ./Figures/rProfile.png :exports results
  {
   //graph [rankdir =LR ]
   node [shape = note]
