@@ -258,8 +258,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
 #+END_SRC
 
 
-#+HEADER: :tangle ../R/rAlias.R :noweb yes :exports results
-#+BEGIN_SRC R 
+
+#+BEGIN_SRC R  :tangle ../R/rAlias.R :noweb yes
      <<rAlias>>
 #+END_SRC 
 
