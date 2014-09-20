@@ -256,7 +256,7 @@ options("digits.secs" = 3)          # show sub-second time stamps
   len <- length
 #+END_SRC
 
-#+HEADER: :tangle ../R/rAlias.R noweb: yes
+#+HEADER: :tangle ../R/rAlias.R :noweb yes
 #+BEGIN_SRC R 
      <<rAlias>>
 #+END_SRC 
