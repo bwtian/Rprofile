@@ -151,6 +151,7 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 ** Remove R from Linux
 
 * R profiles Functions and Options
+** R profile Variables
 ** DONE Set Proxy
 #+NAME: setProxy
 #+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
@@ -243,8 +244,9 @@ options("digits.secs" = 3)          # show sub-second time stamps
           purl(Rnw)
 
   }
-#+END_SRC
+#+END_SEC
 ** Alias
+#+NAME: rAlias
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/rAlias.R
   cd  <- setwd
   pwd <- getwd
@@ -253,6 +255,12 @@ options("digits.secs" = 3)          # show sub-second time stamps
   n   <- names
   len <- length
 #+END_SRC
+
+#+HEADER: :tangle ../R/rAlias.R noweb: yes
+#+BEGIN_SRC R 
+     <<rAlias>>
+#+END_SRC 
+
 
 ** DOING phdFunctions
 
