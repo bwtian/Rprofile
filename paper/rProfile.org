@@ -2,7 +2,7 @@
 #+TITLE: Rprofile
 #+AUTHOR: Bingwei TIAN
 #+EMAIL: bwtian@gmail.com
-#+DATE: [2014-09-19 Fri]
+#+DATE: \today
 #+OPTIONS: H:4 toc:2 num:2 email:t todo:nil tag:not-in-toc
 #+STARTUP: align fold nodlcheck hidestars oddeven lognotestate inlineimages 
 #+CREATED:  [2013-05-01 Wed 22:15]
@@ -186,6 +186,22 @@ setProxy  <- function(proxy){
 ## set a shared Library for all Machine by Dropbox
 .libPaths("~/Dropbox/config/R/rLib/Linux64/3.1")
 #+END_SRC
+** FIXIT Set Alias for shortcut
+- State "FIXIT"      from "DOING"      [2014-09-20 Sat 12:51]
+#+NAME: setAlias
+#+HEADER:  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
+#+BEGIN_SRC R :exports none
+  cd  <- setwd
+  pwd <- getwd
+  h   <- head
+  s   <- summary
+  n   <- names
+  len <- length
+#+END_SRC
+
+#+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
+  <<setAlias>>
+#+END_SRC 
 ** FIXIT Set nearest CRAN mirror
 Find nearest CRAN to your location from list of CRAN mirrors and set up with
 #+NAME:R:setCRANmirror
@@ -257,22 +273,6 @@ options("digits.secs" = 3)          # show sub-second time stamps
 
   }
 #+END_SRC
-** FIXIT Set Alias for shortcut
-- State "FIXIT"      from "DOING"      [2014-09-20 Sat 12:51]
-#+NAME: setAlias
-#+HEADER:  :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setAlias.R
-#+BEGIN_SRC R :exports none
-  cd  <- setwd
-  pwd <- getwd
-  h   <- head
-  s   <- summary
-  n   <- names
-  len <- length
-#+END_SRC
-
-#+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
-  <<setAlias>>
-#+END_SRC 
 
 
 ** DOING phdFunctions
