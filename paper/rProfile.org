@@ -14,7 +14,7 @@
 #+PROPERTY:   noweb yes
 #+DEPENDENCY: run C-c C-v t
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
-               A Rprofile package to make my .Profile portable without Dropbox. 
+               A Rprofile package to make my .Profile portable
 * DONE Workfolow
 
 Tips:  <2014-07-29 Tue> 
@@ -47,6 +47,7 @@ Tips:  <2014-07-29 Tue>
 [[file:./Figures/rProfile.png]]
 [[file:./Figures/rProfile.png]]
 
+* Packages Structure
 * Install R
 ** Install R from Source
    1. [ ] Download Tarball of Latest R
@@ -256,7 +257,8 @@ options("digits.secs" = 3)          # show sub-second time stamps
   len <- length
 #+END_SRC
 
-#+HEADER: :tangle ../R/rAlias.R :noweb yes
+
+#+HEADER: :tangle ../R/rAlias.R :noweb yes :exports results
 #+BEGIN_SRC R 
      <<rAlias>>
 #+END_SRC 
