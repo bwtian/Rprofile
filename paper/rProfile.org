@@ -150,8 +150,8 @@ where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr
 ** update R and Installed packages
 ** Remove R from Linux
 
-* R profiles settingsautomatically create here
-** Set Proxy
+* R profiles Functions and Options
+** DONE Set Proxy
 #+NAME: setProxy
 #+HEADER: :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/setProxy.R
 #+BEGIN_SRC R 
@@ -224,8 +224,8 @@ options("width"=80)                # wide display with multiple monitors
 options(tab.width = 8)
 options("digits.secs" = 3)          # show sub-second time stamps
 #+END_SRC
-** Knit Options
-** Raster Options
+** TODO Knit Options
+** TODO Raster Options
 ** DOING myFucntions
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rProfile/RprofilesAuto/myFunctions.R
   R_ver  <- as.character(getRversion())
@@ -238,9 +238,6 @@ options("digits.secs" = 3)          # show sub-second time stamps
   }
   .upPkgs <- function() {
           update.packages(checkBuilt=TRUE, ask = FALSE, dependencies = c('Suggests'))
-  }
-  .proxy  <- function(){
-          Sys.setenv("http_proxy"="http://proxy.kuins.net:8080/")
   }
   rnw2r  <- function(Rnw){
           purl(Rnw)
