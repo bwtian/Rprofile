@@ -21,8 +21,9 @@ Tips:  <2014-07-29 Tue>
 + Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
 + Reuse the code by file cross reference ~<<codeName>>~ with header noweb:yes
 + Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
+
 #+NAME: rprofileWorkflow
-#+BEGIN_SRC dot :file ./Figures/rProfile.png
+#+BEGIN_SRC dot :file ./Figures/rProfile.png :exports none
  {
   //graph [rankdir =LR ]
   node [shape = note]
