@@ -18,7 +18,7 @@
 Tips:  <2014-07-29 Tue> 
 + Only edit this file rProfile.org for all R*thing
 + All setup files are tangled from this file 
-+ Make a new envrionment Variables for new user on windows HOME %USERPROFILE%
++ Make a new envrionment Variables for new user on windows HOME = %USERPROFILE%
 + Reuse the code by file cross reference ~<<codeName>>~ with header noweb:yes
 + Export to html and check it [[file:rProfile.html][here]]. *C-c C-e h o*
 
@@ -156,15 +156,17 @@ which R is: /usr/bin/R
 where R is: R: /usr/bin/R /etc/R /usr/lib/R /usr/bin/X11/R /usr/local/lib/R /usr/share/R /usr/share/man/man1/R.1.gz
 ** Install Packages 
 [[http://cran.r-project.org/web/views/][CRAN Task Views]] 
-|---------+----------+------------------+-----------------|
-| Type    | Packages | Install          | Update          |
-|---------+----------+------------------+-----------------|
-| CRAN    | base     | install.packages | update.packages |
-| CRAN    | ctv      | install.views    | update.views    |
-| github  | devtools |                  |                 |
-| Tarball |          |                  |                 |
-| Rstudio |          |                  |                 |
-|---------+----------+------------------+-----------------|
+|----------+----------+------------------+-----------------+-----------|
+| Type     | Packages | Install          | Update          | Load      |
+|----------+----------+------------------+-----------------+-----------|
+| CRAN     | base     | install.packages | update.packages | require() |
+| CRAN     | ctv      | install.views    | update.views    | library() |
+| CRAN,TAR | Rstudio  | Packages/Install | Packages/Update | library() |
+|----------+----------+------------------+-----------------+-----------|
+| github   | devtools |                  |                 | library() |
+| Tarball  |          |                  |                 | library() |
+| Source   |          |                  |                 | source()  |
+|----------+----------+------------------+-----------------+-----------|
 #+BEGIN_SRC R :tangle ~/Dropbox/config/R/rInstall/ctvPkGs.R
   # This file was automatically created by rInstall.org and Sourced by Rprofie
   if(!require(ctv)){
@@ -207,12 +209,12 @@ setProxy  <- function(proxy){
 #+BEGIN_SRC R :exports none
 ## WARNING!!! This makes your code less portable/reproducible.
 ## Recommended to use in an Interactive CML mode
-  cd  <- setwd
-  pwd <- getwd
-  h   <- head
-  s   <- summary
-  n   <- names
-  len <- length
+  cd  <- setwd()
+  pwd <- getwd()
+  h   <- head()
+  s   <- summary()
+  n   <- names()
+  len <- length()
 #+END_SRC
 
 #+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
@@ -303,7 +305,6 @@ options("digits.secs" = 3)          # show sub-second time stamps
 
   }
 #+END_SRC
-
 
 ** DOING phdFunctions
 
