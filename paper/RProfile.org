@@ -317,8 +317,9 @@ options("digits.secs" = 3)          # show sub-second time stamps
                   source(file.path(path,file))
           }
   }
-  sourceDir("~/Dropbox/config/R/rProfile/RprofilesAuto")
   sourceDir("~/Dropbox/config/R/rProfile/RprofilesLinux")
+  sourceDir("~/Dropbox/config/R/rProfile/RprofilesAuto")
+
 #+END_SRC
 
 * DONE Quick setting of R profile
