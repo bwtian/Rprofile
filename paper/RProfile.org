@@ -209,12 +209,12 @@ setProxy  <- function(proxy){
 #+BEGIN_SRC R :exports none
 ## WARNING!!! This makes your code less portable/reproducible.
 ## Recommended to use in an Interactive CML mode
-  cd  <- setwd()
-  pwd <- getwd()
-  h   <- head()
-  s   <- summary()
-  n   <- names()
-  len <- length()
+  # cd  <- setwd
+  # pwd <- getwd
+  # h   <- head
+  # s   <- summary
+  # n   <- names
+  # len <- length
 #+END_SRC
 
 #+BEGIN_SRC R  :tangle ../R/setAlias.R :noweb yes
