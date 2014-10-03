@@ -1,1 +1,1 @@
-\ln -sfv ~/SparkleShare/Rprofile/R/R00_Linux_dot_Rprofile.R  ~/.Rprofile
+\ln -sfv ~/SparkleShare/Rprofile/R/dotFiles/R00_Linux_dot_Rprofile.R  ~/.Rprofile
