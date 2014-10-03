@@ -4,5 +4,6 @@ sourceDir <- function(path = ".") {
                 source(file.path(path,file))
         }
 }
-sourceDir("C:/Air/Dropbox/config/R/rProfile/RprofilesAuto")
-## sourceDir("~/Dropbox/config/R/rProfile/RprofilesWin")
+sourceDir("~/SparkleShare/Rprofile/R/RprofilesWin")
+sourceDir("~/SparkleShare/Rprofile/R/RprofilesAuto")
+sourceDir("~/SparkleShare/phd/R")
