@@ -1,16 +1,19 @@
 library(sp)
+library(gstat)
 library(rgdal)
 library(gdalUtils)
 library(maptools)
 library(raster)
 library(rasterVis)
 library(plotKML)
-library(gstat)
 library(plyr)
 library(rgeos)
+
+### Graph
 library(ggplot2)
 library(ggmap)
-
+library(grid)
+library(gridExtra)
 library(lattice)
 library(latticeExtra)
 # Extent of Study area of Japan in Phd Thesis
