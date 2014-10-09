@@ -1,10 +1,12 @@
+#' @usage source("~/SparkleShare/Rprofile/R/Rsettings/phdRsettings.R")
+#' @author Bingwei Tian <bwtian@gmail.com>
+#'
 library(sp)
 library(gstat)
 library(rgdal)
 library(gdalUtils)
 library(maptools)
 library(raster)
-library(rasterVis)
 library(plotKML)
 library(plyr)
 library(rgeos)
@@ -12,15 +14,48 @@ library(rgeos)
 ### Graph
 library(ggplot2)
 library(ggmap)
+library(rasterVis)
 library(grid)
 library(gridExtra)
 library(lattice)
 library(latticeExtra)
+
+### packages
+source("~/SparkleShare/Rprofile/R/RprofilesAuto/sourceDir.R")
+sourceDir("~/SparkleShare/Rprofile/R/")
+sourceDir("~/SparkleShare/TIR/R/")
+sourceDir("~/SparkleShare/rLandsat8/src/main/R/rLandsat8/R")
+sourceDir("~/SparkleShare/geothermaR/R/")
+##  Options
+if(.Platform$OS.type == "windows"){
+        windowsFonts(Times=windowsFont("TT Times New Roman"))
+        windowsFonts(times=windowsFont("TT Times New Roman"))
+}
+
+driver     <- "~/Share500sda/" # Linux and Windows Symbolink
+dir.tmp    <- file.path(driver, "raster_tmp")
+rasterOptions(tmpdir = dir.tmp)
+raster::removeTmpFiles(h = 24)
+gc()
+### Colors
+rainbow1  <- rainbow(n = 255, start = 2/6)
+phd.rainbow <- grDevices::colorRampPalette(c("purple","blue","cyan","green","yellow", "orange","red"))
+oceColorsJet  <- function (n)
+{
+        if (missing(n) || n <= 0)
+                colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
+                                   "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
+        else {
+                colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
+                                   "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))(n)
+        }
+}
+
 # Extent of Study area of Japan in Phd Thesis
 xlimJP <- c(128.5, 146.5)
 ylimJP <- c(30.2, 45.8)
 certerJp <- c(137.5, 38)
-phd.rainbow <- grDevices::colorRampPalette(c("purple","blue","cyan","green","yellow", "orange","red"))
+
 # Coordinate Reference Systems of Japan
 ## Geographic Coordinate Reference Systems
 #tokyoGRS <- "+init=epsg:4301"
