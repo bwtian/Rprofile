@@ -72,6 +72,7 @@ lccWgs84 <- "+proj=lcc +lat_1=32.8 +lat_2=43.2 +lat_0=38 +lon_0=137.5 +x_0=10000
 #  +ellps=WGS84 +towgs84=0,0,0
 ### Define Drivers
 #dir.tar  <- file.path(driver, "Landsat8/L1T")
+driver  <- "~/Share500sda"
 dir.sat  <- file.path(driver, "Landsat8")
 dir.tif <- file.path(dir.sat, "at0_Sensor")
 dir.toa <- file.path(dir.sat, "at1_TOA")
@@ -90,9 +91,8 @@ dir.toaTbKlccScaleMos <-  file.path(dir.toa,"toaTbKlccScaleMos")
 dir.toaTbKlccCenterMos <-  file.path(dir.toa,"toaTbKlccCenterMos")
 dir.surface  <- file.path(dir.sat, "at2_Surface")
 dir.sufTsKlcc  <-  file.path(dir.surface, "sufTsK")
-dir.database  <- file.path(driver, "at9_Database")
-dir.lulc  <- file.path(dir.database, "LULC")
-dir.AG100B  <- "~/Share500sda/AG100B/"
+dir.lulc  <- file.path(driver, "LULC")
+dir.AG100B  <- dir.lulc  <- file.path(driver, "AG100B")
 ### Files
 #hkdmaskb  <- readRDS("~/SparkleShare/TIR/hkdmskb_grdi2d1h.Rds")
 
