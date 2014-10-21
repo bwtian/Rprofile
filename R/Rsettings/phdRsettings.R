@@ -92,7 +92,7 @@ dir.toaTbKlccCenterMos <-  file.path(dir.toa,"toaTbKlccCenterMos")
 dir.surface  <- file.path(dir.sat, "at2_Surface")
 dir.sufTsKlcc  <-  file.path(dir.surface, "sufTsK")
 dir.lulc  <- file.path(driver, "LULC")
-dir.AG100B  <- dir.lulc  <- file.path(driver, "AG100B")
+dir.AG100B  <- file.path(driver, "AG100B")
 ### Files
 #hkdmaskb  <- readRDS("~/SparkleShare/TIR/hkdmskb_grdi2d1h.Rds")
 
