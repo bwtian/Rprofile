@@ -13,6 +13,12 @@
 #+DEPENDENCY: run C-c C-v t
 #+DESCRIPTION: This document is both for my .Rrofile setting  and
                A Rprofile package to make my .Profile portable
+			   
+
+* How R start
+
+C:/Program Files/R/R-x.x.x/etc/Rprofile.site -> ~/.Rprofile -> getwd()/.Rpfofile
+			   
 * DONE Workfolow
 
 Tips:  <2014-07-29 Tue> 
