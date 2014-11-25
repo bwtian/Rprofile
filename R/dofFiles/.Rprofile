@@ -4,5 +4,6 @@ sourceDir <- function(path = ".") {
                 source(file.path(path,file))
         }
 }
+sourceDir("~/SparkleShare/Rprofile/R/RprofilesWin")
 .libPaths("~/SparkleShare/rLibWin/")
 sourceDir("~/SparkleShare/Rprofile/R/RprofilesAuto")
