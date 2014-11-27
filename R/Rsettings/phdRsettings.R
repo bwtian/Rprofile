@@ -22,7 +22,7 @@ library(latticeExtra)
 
 ### packages
 source("~/SparkleShare/Rprofile/R/RprofilesAuto/sourceDir.R")
-sourceDir("~/SparkleShare/Rprofile/R/")
+sourceDir("~/SparkleShare/Rprofile/R/RprofilesAuto")
 sourceDir("~/SparkleShare/TIR/R/")
 sourceDir("~/SparkleShare/rLandsat8/src/main/R/rLandsat8/R")
 sourceDir("~/SparkleShare/geothermaR/R/")
