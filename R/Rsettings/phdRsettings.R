@@ -7,10 +7,10 @@ library(rgdal)
 library(gdalUtils)
 library(maptools)
 library(raster)
-#library(plotKML)
+library(plotKML)
 library(plyr)
 library(rgeos)
-
+library(RSAGA)
 ### Graph
 library(ggplot2)
 library(ggmap)
