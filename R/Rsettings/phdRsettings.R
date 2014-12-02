@@ -36,7 +36,7 @@ driver     <- "~/Share500sda/" # Linux and Windows Symbolink
 dir.tmp    <- file.path(driver, "raster_tmp")
 rasterOptions(tmpdir = dir.tmp)
 raster::removeTmpFiles(h = 24)
-theme_set(theme_bw(base_family = "Times"))
+theme_set(theme_bw(base_size = 12, base_family = "Times"))
 gc()
 ### Colors
 rainbow1  <- rainbow(n = 255, start = 2/6)
