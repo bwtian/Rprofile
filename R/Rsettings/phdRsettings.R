@@ -1,6 +1,7 @@
 #' @usage source("~/SparkleShare/Rprofile/R/Rsettings/phdRsettings.R")
 #' @author Bingwei Tian <bwtian@gmail.com>
 #'
+library("devtools")
 library(sp)
 library(gstat)
 library(rgdal)
