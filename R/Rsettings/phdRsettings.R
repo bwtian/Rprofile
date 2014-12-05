@@ -47,7 +47,7 @@ raster
 theme_set(theme_bw(base_size = 12, base_family = "Times"))
 gc()
 ### Colors
-rainbowGR  <- rainbow(n = 255, start = 2/6)
+rainbow.GR  <- rainbow(n = 255, start = 2/6)
 ge.rainbow <- grDevices::colorRampPalette(c("purple","blue","cyan","green","yellow", "orange","red"))
 oceColorsJet  <- function (n)
 {
