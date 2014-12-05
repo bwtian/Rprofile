@@ -100,6 +100,7 @@ dir.AG100B  <- file.path(driver, "AG100B")
 dir.Code <- "~/Dropbox/1code"
 dir.Data <- "~/Dropbox/2data"
 dir.hkd <- "~/Dropbox/2data/dataProduct/hkd"
+dir.jp <- "~/Dropbox/2data/dataProduct/jp"
 dir.Figs <- "~/Dropbox/3figs"
 ### Files
 #hkdmaskb  <- readRDS("~/SparkleShare/TIR/hkdmskb_grdi2d1h.Rds")
