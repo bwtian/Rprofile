@@ -43,7 +43,7 @@ theme_set(theme_bw(base_size = 12, base_family = "Times"))
 gc()
 ### Colors
 rainbow1  <- rainbow(n = 255, start = 2/6)
-phd.rainbow <- grDevices::colorRampPalette(c("purple","blue","cyan","green","yellow", "orange","red"))
+ge.rainbow <- grDevices::colorRampPalette(c("purple","blue","cyan","green","yellow", "orange","red"))
 oceColorsJet  <- function (n)
 {
         if (missing(n) || n <= 0)
