@@ -1,9 +1,9 @@
 #' @usage source("~/SparkleShare/Rprofile/R/Rsettings/phdRsettings.R")
 #' @author Bingwei Tian <bwtian@gmail.com>
 #'
-library(plotly)
-### Connect plotly
-py <- plotly(username="B.Tian", key="s0asjdatdm")  # open plotly connection
+# library(plotly)
+# ### Connect plotly
+# py <- plotly(username="B.Tian", key="s0asjdatdm")  # open plotly connection
 library(sp)
 library(gstat)
 library(rgdal)
