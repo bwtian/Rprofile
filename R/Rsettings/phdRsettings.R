@@ -1,6 +1,7 @@
 #' @usage source("~/SparkleShare/Rprofile/R/Rsettings/phdRsettings.R")
 #' @author Bingwei Tian <bwtian@gmail.com>
 #'
+# rm(list=ls())
 # library(plotly)
 # ### Connect plotly
 # py <- plotly(username="B.Tian", key="s0asjdatdm")  # open plotly connection
@@ -39,9 +40,9 @@ driver     <- "~/Share500sda/" # Linux and Windows Symbolink
 dir.tmp    <- file.path(driver, "raster_tmp")
 ### RasterOptions
 rasterOptions(todisk = FALSE)
-rasterOptions(chunksize = 1e+06, maxmemory =1e+07)
-rasterOptions(tmpdir = dir.tmp)
-raster::removeTmpFiles(h = 24)
+rasterOptions(chunksize = 5e+08, maxmemory =1e+09)
+#rasterOptions(tmpdir = dir.tmp)
+raster::removeTmpFiles(h = 1)
 raster
 theme_set(theme_bw(base_size = 12, base_family = "Times"))
 gc()
