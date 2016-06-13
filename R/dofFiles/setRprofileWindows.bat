@@ -1,3 +1,4 @@
+echo on
 REM Step1.make a environment variable HOME=%USERPROFILE%
 REM Step2.make a environment variable R_HOME=C:\Program Files\R\R-3.1.1
 REM Step3. mklink "~/.Rprofile" "~/SparkleShare/Rprofile/R/dotFiles/R01_Win_dot_Rprofile.R"
