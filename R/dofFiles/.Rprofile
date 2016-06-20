@@ -6,4 +6,4 @@ sourceDir <- function(path = ".") {
 }
 sourceDir("~/SparkleShare/Rprofile/R/RprofilesWin")
 sourceDir("~/SparkleShare/Rprofile/R/RprofilesAuto")
-sourceDir("~/SparkleShare/Rprofile/R/RprofilesAuto")
+
